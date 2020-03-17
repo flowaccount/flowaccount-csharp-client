@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **DocumentStructureType** | **string** |  | 
-**Type** | **int** | ประเภทสินค้า 1 &#x3D; บริการ, 3 &#x3D; สินค้าไม่นับส๊อก, 5 &#x3D; สินค้านับสต๊ฮก | [optional] [default to 1]
+**Type** | **int** | ประเภทสินค้า &lt;br&gt; 1 &#x3D; บริการ (service) &lt;br&gt; 3 &#x3D; สินค้าไม่นับสต๊อก (non inventory) &lt;br&gt; 5 &#x3D; สินค้านับสต๊อก (inventory) | [optional] [default to 1]
 **Name** | **string** | ชื่อสินค้า | 
 **Description** | **string** | รายละเอียดสินค้า | [optional] 
 **Quantity** | **decimal** | จำนวนสินค้า | 

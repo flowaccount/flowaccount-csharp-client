@@ -4,14 +4,15 @@ All URIs are relative to *https://openapi.flowaccount.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**QuotationsEmailDocumentPost**](QuotationsApi.md#quotationsemaildocumentpost) | **POST** /quotations/email-document | Send Email quotations document
-[**QuotationsGet**](QuotationsApi.md#quotationsget) | **GET** /quotations | List all quotations documents.
-[**QuotationsIdAttachmentPost**](QuotationsApi.md#quotationsidattachmentpost) | **POST** /quotations/{id}/attachment | Add Attachment to quotations
-[**QuotationsIdGet**](QuotationsApi.md#quotationsidget) | **GET** /quotations/{id} | Get quotations document
-[**QuotationsIdStatusKeyStatusIdPost**](QuotationsApi.md#quotationsidstatuskeystatusidpost) | **POST** /quotations/{id}/status-key/{statusId} | change status document quotations
+[**QuotationsEmailDocumentPost**](QuotationsApi.md#quotationsemaildocumentpost) | **POST** /quotations/email-document | Send email quotations document.
+[**QuotationsGet**](QuotationsApi.md#quotationsget) | **GET** /quotations | Get list all quotations documents.
+[**QuotationsIdAttachmentPost**](QuotationsApi.md#quotationsidattachmentpost) | **POST** /quotations/{id}/attachment | Add Attachment to quotations document.
+[**QuotationsIdDelete**](QuotationsApi.md#quotationsiddelete) | **DELETE** /quotations/{id} | Get quotations document.
+[**QuotationsIdGet**](QuotationsApi.md#quotationsidget) | **GET** /quotations/{id} | Get quotations document.
+[**QuotationsIdStatusKeyStatusIdPost**](QuotationsApi.md#quotationsidstatuskeystatusidpost) | **POST** /quotations/{id}/status-key/{statusId} | Change status of quotations document.
 [**QuotationsInlinePost**](QuotationsApi.md#quotationsinlinepost) | **POST** /quotations/inline | Create quotations document with discount and tax inline.
 [**QuotationsPost**](QuotationsApi.md#quotationspost) | **POST** /quotations | Create quotations document.
-[**QuotationsSharedocumentPost**](QuotationsApi.md#quotationssharedocumentpost) | **POST** /quotations/sharedocument | Share Document quotations
+[**QuotationsSharedocumentPost**](QuotationsApi.md#quotationssharedocumentpost) | **POST** /quotations/sharedocument | Share link quotations document.
 
 
 
@@ -19,7 +20,9 @@ Method | HTTP request | Description
 
 > SendEmailResponse QuotationsEmailDocumentPost (string authorization, SendEmailSimple sendEmailSimple)
 
-Send Email quotations document
+Send email quotations document.
+
+ส่งเอกสารใบเสนอราคา ผ่านทางอีเมล ตามเลขที่เอกสารที่ต้องการ
 
 ### Example
 
@@ -43,7 +46,7 @@ namespace Example
 
             try
             {
-                // Send Email quotations document
+                // Send email quotations document.
                 SendEmailResponse result = apiInstance.QuotationsEmailDocumentPost(authorization, sendEmailSimple);
                 Debug.WriteLine(result);
             }
@@ -94,9 +97,11 @@ No authorization required
 
 ## QuotationsGet
 
-> SimpleDocumentResponse QuotationsGet (string authorization)
+> InlineDocumentResponse QuotationsGet (string authorization)
 
-List all quotations documents.
+Get list all quotations documents.
+
+เรียกดูข้อมูลเอกสารใบเสนอราคาทั้งหมดในระบบ
 
 ### Example
 
@@ -119,8 +124,8 @@ namespace Example
 
             try
             {
-                // List all quotations documents.
-                SimpleDocumentResponse result = apiInstance.QuotationsGet(authorization);
+                // Get list all quotations documents.
+                InlineDocumentResponse result = apiInstance.QuotationsGet(authorization);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -143,7 +148,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SimpleDocumentResponse**](SimpleDocumentResponse.md)
+[**InlineDocumentResponse**](InlineDocumentResponse.md)
 
 ### Authorization
 
@@ -169,9 +174,11 @@ No authorization required
 
 ## QuotationsIdAttachmentPost
 
-> void QuotationsIdAttachmentPost (string authorization, string id, System.IO.Stream file = null)
+> AttachmentResponse QuotationsIdAttachmentPost (string authorization, string id, System.IO.Stream file = null)
 
-Add Attachment to quotations
+Add Attachment to quotations document.
+
+แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบเสนอราคาตามเลขที่เอกสารที่ต้องการ
 
 ### Example
 
@@ -191,13 +198,14 @@ namespace Example
             Configuration.Default.BasePath = "https://openapi.flowaccount.com/v1";
             var apiInstance = new QuotationsApi(Configuration.Default);
             var authorization = authorization_example;  // string |  (default to "Bearer accessToken")
-            var id = id_example;  // string | 
-            var file = BINARY_DATA_HERE;  // System.IO.Stream |  (optional) 
+            var id = id_example;  // string | documentId หรือ recordId ของเอกสารที่ต้องการแนบ
+            var file = BINARY_DATA_HERE;  // System.IO.Stream | รูปแบบ file ที่ใช้แนบในเอกสารเป็นแบบ Binary (optional) 
 
             try
             {
-                // Add Attachment to quotations
-                apiInstance.QuotationsIdAttachmentPost(authorization, id, file);
+                // Add Attachment to quotations document.
+                AttachmentResponse result = apiInstance.QuotationsIdAttachmentPost(authorization, id, file);
+                Debug.WriteLine(result);
             }
             catch (ApiException e)
             {
@@ -216,12 +224,12 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**|  | [default to &quot;Bearer accessToken&quot;]
- **id** | **string**|  | 
- **file** | **System.IO.Stream**|  | [optional] 
+ **id** | **string**| documentId หรือ recordId ของเอกสารที่ต้องการแนบ | 
+ **file** | **System.IO.Stream**| รูปแบบ file ที่ใช้แนบในเอกสารเป็นแบบ Binary | [optional] 
 
 ### Return type
 
-void (empty response body)
+[**AttachmentResponse**](AttachmentResponse.md)
 
 ### Authorization
 
@@ -230,7 +238,86 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: multipart/form-data
-- **Accept**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 response |  -  |
+| **401** | 401 response |  -  |
+| **500** | 500 response |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## QuotationsIdDelete
+
+> DeleteResponse QuotationsIdDelete (string authorization, string id)
+
+Get quotations document.
+
+ลบ เอกสารใบเสนอราคาตามเลขที่เอกสารที่ต้องการ <br> ** การลบเอกสาร เอกสารต้องอยู่ในสถานะ รออนุมัติ 
+
+### Example
+
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Flowaccount.OpenAPITools.Api;
+using Flowaccount.OpenAPITools.Client;
+using Flowaccount.OpenAPITools.Model;
+
+namespace Example
+{
+    public class QuotationsIdDeleteExample
+    {
+        public static void Main()
+        {
+            Configuration.Default.BasePath = "https://openapi.flowaccount.com/v1";
+            var apiInstance = new QuotationsApi(Configuration.Default);
+            var authorization = authorization_example;  // string |  (default to "Bearer accessToken")
+            var id = id_example;  // string | ID เอกสารใช้ recordId
+
+            try
+            {
+                // Get quotations document.
+                DeleteResponse result = apiInstance.QuotationsIdDelete(authorization, id);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling QuotationsApi.QuotationsIdDelete: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **string**|  | [default to &quot;Bearer accessToken&quot;]
+ **id** | **string**| ID เอกสารใช้ recordId | 
+
+### Return type
+
+[**DeleteResponse**](DeleteResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -249,7 +336,9 @@ No authorization required
 
 > InlineDocumentResponse QuotationsIdGet (string authorization, string id)
 
-Get quotations document
+Get quotations document.
+
+เรียกดูข้อมูลเอกสารใบเสนอราคาตามเลขที่เอกสารที่ต้องการ
 
 ### Example
 
@@ -269,11 +358,11 @@ namespace Example
             Configuration.Default.BasePath = "https://openapi.flowaccount.com/v1";
             var apiInstance = new QuotationsApi(Configuration.Default);
             var authorization = authorization_example;  // string |  (default to "Bearer accessToken")
-            var id = id_example;  // string | 
+            var id = id_example;  // string | ID เอกสารใช้ recordId
 
             try
             {
-                // Get quotations document
+                // Get quotations document.
                 InlineDocumentResponse result = apiInstance.QuotationsIdGet(authorization, id);
                 Debug.WriteLine(result);
             }
@@ -294,7 +383,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**|  | [default to &quot;Bearer accessToken&quot;]
- **id** | **string**|  | 
+ **id** | **string**| ID เอกสารใช้ recordId | 
 
 ### Return type
 
@@ -324,9 +413,11 @@ No authorization required
 
 ## QuotationsIdStatusKeyStatusIdPost
 
-> StatusResponse QuotationsIdStatusKeyStatusIdPost (string authorization, string id, string statusId)
+> InlineDocumentResponse QuotationsIdStatusKeyStatusIdPost (string authorization, string id, string statusId)
 
-change status document quotations
+Change status of quotations document.
+
+เปลี่ยนสถานะของเอกสารใบเสนอราคา สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รออนุมัติ (awaiting)
 
 ### Example
 
@@ -351,8 +442,8 @@ namespace Example
 
             try
             {
-                // change status document quotations
-                StatusResponse result = apiInstance.QuotationsIdStatusKeyStatusIdPost(authorization, id, statusId);
+                // Change status of quotations document.
+                InlineDocumentResponse result = apiInstance.QuotationsIdStatusKeyStatusIdPost(authorization, id, statusId);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -377,7 +468,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**StatusResponse**](StatusResponse.md)
+[**InlineDocumentResponse**](InlineDocumentResponse.md)
 
 ### Authorization
 
@@ -406,6 +497,8 @@ No authorization required
 > InlineDocumentResponse QuotationsInlinePost (string authorization, InlineDocument inlineDocument)
 
 Create quotations document with discount and tax inline.
+
+สร้างเอกสารใบเสนอราคา แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รออนุมัติ (awaiting) <br> <br> ข้อมูลการออกเอกสารใบเสนอราคา : https://flowaccount.com/blog/ใบเสนอราคา
 
 ### Example
 
@@ -480,9 +573,11 @@ No authorization required
 
 ## QuotationsPost
 
-> SimpleDocumentResponse QuotationsPost (string authorization, SimpleDocument simpleDocument)
+> InlineDocumentResponse QuotationsPost (string authorization, SimpleDocument simpleDocument)
 
 Create quotations document.
+
+สร้างเอกสารใบเสนอราคา เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รออนุมัติ (awaiting) <br> <br> ข้อมูลการออกเอกสารใบเสนอราคา : https://flowaccount.com/blog/ใบเสนอราคา
 
 ### Example
 
@@ -507,7 +602,7 @@ namespace Example
             try
             {
                 // Create quotations document.
-                SimpleDocumentResponse result = apiInstance.QuotationsPost(authorization, simpleDocument);
+                InlineDocumentResponse result = apiInstance.QuotationsPost(authorization, simpleDocument);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -531,7 +626,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SimpleDocumentResponse**](SimpleDocumentResponse.md)
+[**InlineDocumentResponse**](InlineDocumentResponse.md)
 
 ### Authorization
 
@@ -559,7 +654,9 @@ No authorization required
 
 > ShareDocumentResponse QuotationsSharedocumentPost (string authorization, ShareDocument shareDocument)
 
-Share Document quotations
+Share link quotations document.
+
+แชร์ลิงค์ เอกสารใบเสนอราคาที่ต้องการ จะได้รับลิงค์สำหรับแชร์และเรียกดูเอกสาร
 
 ### Example
 
@@ -583,7 +680,7 @@ namespace Example
 
             try
             {
-                // Share Document quotations
+                // Share link quotations document.
                 ShareDocumentResponse result = apiInstance.QuotationsSharedocumentPost(authorization, shareDocument);
                 Debug.WriteLine(result);
             }

@@ -4,14 +4,15 @@ All URIs are relative to *https://openapi.flowaccount.com/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**BillingNotesEmailDocumentPost**](BillingNotesApi.md#billingnotesemaildocumentpost) | **POST** /billing-notes/email-document | Send Email billing notes document
-[**BillingNotesGet**](BillingNotesApi.md#billingnotesget) | **GET** /billing-notes | List all billing notes documents.
-[**BillingNotesIdAttachmentPost**](BillingNotesApi.md#billingnotesidattachmentpost) | **POST** /billing-notes/{id}/attachment | Add Attachment to billing notes
-[**BillingNotesIdGet**](BillingNotesApi.md#billingnotesidget) | **GET** /billing-notes/{id} | Get billing notes document
-[**BillingNotesIdStatusKeyStatusIdPost**](BillingNotesApi.md#billingnotesidstatuskeystatusidpost) | **POST** /billing-notes/{id}/status-key/{statusId} | change status document billing notes
+[**BillingNotesEmailDocumentPost**](BillingNotesApi.md#billingnotesemaildocumentpost) | **POST** /billing-notes/email-document | Send email billing notes document.
+[**BillingNotesGet**](BillingNotesApi.md#billingnotesget) | **GET** /billing-notes | Get list all billing notes documents.
+[**BillingNotesIdAttachmentPost**](BillingNotesApi.md#billingnotesidattachmentpost) | **POST** /billing-notes/{id}/attachment | Add Attachment to billing notes document.
+[**BillingNotesIdDelete**](BillingNotesApi.md#billingnotesiddelete) | **DELETE** /billing-notes/{id} | Get billing notes document.
+[**BillingNotesIdGet**](BillingNotesApi.md#billingnotesidget) | **GET** /billing-notes/{id} | Get billing notes document.
+[**BillingNotesIdStatusKeyStatusIdPost**](BillingNotesApi.md#billingnotesidstatuskeystatusidpost) | **POST** /billing-notes/{id}/status-key/{statusId} | Change status of billing notes document.
 [**BillingNotesInlinePost**](BillingNotesApi.md#billingnotesinlinepost) | **POST** /billing-notes/inline | Create billing notes document with discount and tax inline.
 [**BillingNotesPost**](BillingNotesApi.md#billingnotespost) | **POST** /billing-notes | Create billing notes document.
-[**BillingNotesSharedocumentPost**](BillingNotesApi.md#billingnotessharedocumentpost) | **POST** /billing-notes/sharedocument | Share Document billing notes
+[**BillingNotesSharedocumentPost**](BillingNotesApi.md#billingnotessharedocumentpost) | **POST** /billing-notes/sharedocument | Share link billing notes document.
 
 
 
@@ -19,7 +20,9 @@ Method | HTTP request | Description
 
 > SendEmailResponse BillingNotesEmailDocumentPost (string authorization, SendEmailCoppies sendEmailCoppies)
 
-Send Email billing notes document
+Send email billing notes document.
+
+ส่งเอกสารใบวางบิล ผ่านทางอีเมล ตามเลขที่เอกสารที่ต้องการ
 
 ### Example
 
@@ -43,7 +46,7 @@ namespace Example
 
             try
             {
-                // Send Email billing notes document
+                // Send email billing notes document.
                 SendEmailResponse result = apiInstance.BillingNotesEmailDocumentPost(authorization, sendEmailCoppies);
                 Debug.WriteLine(result);
             }
@@ -94,9 +97,11 @@ No authorization required
 
 ## BillingNotesGet
 
-> SimpleDocumentResponse BillingNotesGet (string authorization)
+> InlineDocumentResponse BillingNotesGet (string authorization)
 
-List all billing notes documents.
+Get list all billing notes documents.
+
+เรียกดูข้อมูลเอกสารใบวางบิลทั้งหมดในระบบ
 
 ### Example
 
@@ -119,8 +124,8 @@ namespace Example
 
             try
             {
-                // List all billing notes documents.
-                SimpleDocumentResponse result = apiInstance.BillingNotesGet(authorization);
+                // Get list all billing notes documents.
+                InlineDocumentResponse result = apiInstance.BillingNotesGet(authorization);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -143,7 +148,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SimpleDocumentResponse**](SimpleDocumentResponse.md)
+[**InlineDocumentResponse**](InlineDocumentResponse.md)
 
 ### Authorization
 
@@ -169,9 +174,11 @@ No authorization required
 
 ## BillingNotesIdAttachmentPost
 
-> void BillingNotesIdAttachmentPost (string authorization, string id, System.IO.Stream file = null)
+> AttachmentResponse BillingNotesIdAttachmentPost (string authorization, string id, System.IO.Stream file = null)
 
-Add Attachment to billing notes
+Add Attachment to billing notes document.
+
+แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบวางบิลตามเลขที่เอกสารที่ต้องการ
 
 ### Example
 
@@ -191,13 +198,14 @@ namespace Example
             Configuration.Default.BasePath = "https://openapi.flowaccount.com/v1";
             var apiInstance = new BillingNotesApi(Configuration.Default);
             var authorization = authorization_example;  // string |  (default to "Bearer accessToken")
-            var id = id_example;  // string | 
-            var file = BINARY_DATA_HERE;  // System.IO.Stream |  (optional) 
+            var id = id_example;  // string | documentId หรือ recordId ของเอกสารที่ต้องการแนบ
+            var file = BINARY_DATA_HERE;  // System.IO.Stream | รูปแบบ file ที่ใช้แนบในเอกสารเป็นแบบ Binary (optional) 
 
             try
             {
-                // Add Attachment to billing notes
-                apiInstance.BillingNotesIdAttachmentPost(authorization, id, file);
+                // Add Attachment to billing notes document.
+                AttachmentResponse result = apiInstance.BillingNotesIdAttachmentPost(authorization, id, file);
+                Debug.WriteLine(result);
             }
             catch (ApiException e)
             {
@@ -216,12 +224,12 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**|  | [default to &quot;Bearer accessToken&quot;]
- **id** | **string**|  | 
- **file** | **System.IO.Stream**|  | [optional] 
+ **id** | **string**| documentId หรือ recordId ของเอกสารที่ต้องการแนบ | 
+ **file** | **System.IO.Stream**| รูปแบบ file ที่ใช้แนบในเอกสารเป็นแบบ Binary | [optional] 
 
 ### Return type
 
-void (empty response body)
+[**AttachmentResponse**](AttachmentResponse.md)
 
 ### Authorization
 
@@ -230,7 +238,86 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: multipart/form-data
-- **Accept**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 response |  -  |
+| **401** | 401 response |  -  |
+| **500** | 500 response |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## BillingNotesIdDelete
+
+> DeleteResponse BillingNotesIdDelete (string authorization, string id)
+
+Get billing notes document.
+
+ลบ เอกสารใบวางบิล ตามเลขที่เอกสารที่ต้องการ <br> ** การลบเอกสาร เอกสารต้องอยู่ในสถานะ รอวางบิล 
+
+### Example
+
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Flowaccount.OpenAPITools.Api;
+using Flowaccount.OpenAPITools.Client;
+using Flowaccount.OpenAPITools.Model;
+
+namespace Example
+{
+    public class BillingNotesIdDeleteExample
+    {
+        public static void Main()
+        {
+            Configuration.Default.BasePath = "https://openapi.flowaccount.com/v1";
+            var apiInstance = new BillingNotesApi(Configuration.Default);
+            var authorization = authorization_example;  // string |  (default to "Bearer accessToken")
+            var id = id_example;  // string | ID เอกสารใช้ recordId
+
+            try
+            {
+                // Get billing notes document.
+                DeleteResponse result = apiInstance.BillingNotesIdDelete(authorization, id);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling BillingNotesApi.BillingNotesIdDelete: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **string**|  | [default to &quot;Bearer accessToken&quot;]
+ **id** | **string**| ID เอกสารใช้ recordId | 
+
+### Return type
+
+[**DeleteResponse**](DeleteResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -249,7 +336,9 @@ No authorization required
 
 > InlineDocumentResponse BillingNotesIdGet (string authorization, string id)
 
-Get billing notes document
+Get billing notes document.
+
+เรียกดูข้อมูลเอกสารใบวางบิลตามเลขที่เอกสารที่ต้องการ
 
 ### Example
 
@@ -269,11 +358,11 @@ namespace Example
             Configuration.Default.BasePath = "https://openapi.flowaccount.com/v1";
             var apiInstance = new BillingNotesApi(Configuration.Default);
             var authorization = authorization_example;  // string |  (default to "Bearer accessToken")
-            var id = id_example;  // string | 
+            var id = id_example;  // string | ID เอกสารใช้ recordId
 
             try
             {
-                // Get billing notes document
+                // Get billing notes document.
                 InlineDocumentResponse result = apiInstance.BillingNotesIdGet(authorization, id);
                 Debug.WriteLine(result);
             }
@@ -294,7 +383,7 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**|  | [default to &quot;Bearer accessToken&quot;]
- **id** | **string**|  | 
+ **id** | **string**| ID เอกสารใช้ recordId | 
 
 ### Return type
 
@@ -324,9 +413,11 @@ No authorization required
 
 ## BillingNotesIdStatusKeyStatusIdPost
 
-> StatusResponse BillingNotesIdStatusKeyStatusIdPost (string authorization, string id, string statusId)
+> InlineDocumentResponse BillingNotesIdStatusKeyStatusIdPost (string authorization, string id, string statusId)
 
-change status document billing notes
+Change status of billing notes document.
+
+เปลี่ยนสถานะของเอกสารใบวางบิล สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอวางบิล (awaiting)
 
 ### Example
 
@@ -351,8 +442,8 @@ namespace Example
 
             try
             {
-                // change status document billing notes
-                StatusResponse result = apiInstance.BillingNotesIdStatusKeyStatusIdPost(authorization, id, statusId);
+                // Change status of billing notes document.
+                InlineDocumentResponse result = apiInstance.BillingNotesIdStatusKeyStatusIdPost(authorization, id, statusId);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -377,7 +468,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**StatusResponse**](StatusResponse.md)
+[**InlineDocumentResponse**](InlineDocumentResponse.md)
 
 ### Authorization
 
@@ -406,6 +497,8 @@ No authorization required
 > InlineDocumentResponse BillingNotesInlinePost (string authorization, InlineDocument inlineDocument)
 
 Create billing notes document with discount and tax inline.
+
+สร้างเอกสารใบวางบิล แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอวางบิล (awaiting) <br> <br> ข้อมูลการออกเอกสารใบวางบิล : https://flowaccount.com/blog/ใบวางบิล-ใบแจ้งหนี้
 
 ### Example
 
@@ -484,6 +577,8 @@ No authorization required
 
 Create billing notes document.
 
+สร้างเอกสารใบวางบิล เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอวาบิล (awaiting) <br> <br> ข้อมูลการออกเอกสารใบวางบิล : https://flowaccount.com/blog/ใบวางบิล-ใบแจ้งหนี้
+
 ### Example
 
 ```csharp
@@ -559,7 +654,9 @@ No authorization required
 
 > ShareDocumentResponse BillingNotesSharedocumentPost (string authorization, ShareDocument shareDocument)
 
-Share Document billing notes
+Share link billing notes document.
+
+แชร์ลิงค์ เอกสารใบวางบิลที่ต้องการ จะได้รับลิงค์สำหรับแชร์และเรียกดูเอกสาร
 
 ### Example
 
@@ -583,7 +680,7 @@ namespace Example
 
             try
             {
-                // Share Document billing notes
+                // Share link billing notes document.
                 ShareDocumentResponse result = apiInstance.BillingNotesSharedocumentPost(authorization, shareDocument);
                 Debug.WriteLine(result);
             }

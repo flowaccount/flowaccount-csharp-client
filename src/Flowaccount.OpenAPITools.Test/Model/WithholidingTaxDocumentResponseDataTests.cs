@@ -1,7 +1,7 @@
 /* 
  * FlowAccount Open API
  *
- * FlowAccount.com โปรแกรมบัญชีออนไลน์ใช้งานง่าย สำหรับธุรกิจที่พึ่งเริ่มต้น
+ * FlowAccount.com โปรแกรมบัญชีออนไลน์ใช้งานง่าย สำหรับธุรกิจที่พึ่งเริ่มต้น   # Introduction **Servers Production**    site: https://www.flowaccount.com    api url: https://openapi.flowaccount.com/v1    **Beta test**   site: http://sandbox-new.flowaccount.com/    api url: https://openapi.flowaccount.com/test
  *
  * The version of the OpenAPI document: 2-oas3
  * Contact: developer@flowaccount.com
@@ -80,14 +80,6 @@ namespace Flowaccount.OpenAPITools.Test
         public void DocumentSerialTest()
         {
             // TODO unit test for the property 'DocumentSerial'
-        }
-        /// <summary>
-        /// Test the property 'Status'
-        /// </summary>
-        [Test]
-        public void StatusTest()
-        {
-            // TODO unit test for the property 'Status'
         }
         /// <summary>
         /// Test the property 'ContactCode'
@@ -280,6 +272,38 @@ namespace Flowaccount.OpenAPITools.Test
         public void ShowSignatureOrStampTest()
         {
             // TODO unit test for the property 'ShowSignatureOrStamp'
+        }
+        /// <summary>
+        /// Test the property 'Status'
+        /// </summary>
+        [Test]
+        public void StatusTest()
+        {
+            // TODO unit test for the property 'Status'
+        }
+        /// <summary>
+        /// Test the property 'StatusString'
+        /// </summary>
+        [Test]
+        public void StatusStringTest()
+        {
+            // TODO unit test for the property 'StatusString'
+        }
+        /// <summary>
+        /// Test the property 'DocumentType'
+        /// </summary>
+        [Test]
+        public void DocumentTypeTest()
+        {
+            // TODO unit test for the property 'DocumentType'
+        }
+        /// <summary>
+        /// Test the property 'AllowDelete'
+        /// </summary>
+        [Test]
+        public void AllowDeleteTest()
+        {
+            // TODO unit test for the property 'AllowDelete'
         }
 
     }

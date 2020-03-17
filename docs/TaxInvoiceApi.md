@@ -5,15 +5,15 @@ All URIs are relative to *https://openapi.flowaccount.com/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**TaxInvoicesEmailDocumentPost**](TaxInvoiceApi.md#taxinvoicesemaildocumentpost) | **POST** /tax-invoices/email-document | Send Email tax invoice document
-[**TaxInvoicesGet**](TaxInvoiceApi.md#taxinvoicesget) | **GET** /tax-invoices | List tax invocie documents.
-[**TaxInvoicesIdAttachmentPost**](TaxInvoiceApi.md#taxinvoicesidattachmentpost) | **POST** /tax-invoices/{id}/attachment | Add Attachment to Tax Invoice
-[**TaxInvoicesIdGet**](TaxInvoiceApi.md#taxinvoicesidget) | **GET** /tax-invoices/{id} | Get document
-[**TaxInvoicesIdInlinePut**](TaxInvoiceApi.md#taxinvoicesidinlineput) | **PUT** /tax-invoices/{id}/inline | Update document
-[**TaxInvoicesIdPut**](TaxInvoiceApi.md#taxinvoicesidput) | **PUT** /tax-invoices/{id} | Update document
-[**TaxInvoicesIdStatusKeyStatusIdPost**](TaxInvoiceApi.md#taxinvoicesidstatuskeystatusidpost) | **POST** /tax-invoices/{id}/status-key/{statusId} | change status document tax invoices
+[**TaxInvoicesGet**](TaxInvoiceApi.md#taxinvoicesget) | **GET** /tax-invoices | Get list all tax invocie documents.
+[**TaxInvoicesIdAttachmentPost**](TaxInvoiceApi.md#taxinvoicesidattachmentpost) | **POST** /tax-invoices/{id}/attachment | Add Attachment to tax Invoices document.
+[**TaxInvoicesIdDelete**](TaxInvoiceApi.md#taxinvoicesiddelete) | **DELETE** /tax-invoices/{id} | Get tax invoices document.
+[**TaxInvoicesIdGet**](TaxInvoiceApi.md#taxinvoicesidget) | **GET** /tax-invoices/{id} | Get tax invoices document.
+[**TaxInvoicesIdPaymentPost**](TaxInvoiceApi.md#taxinvoicesidpaymentpost) | **POST** /tax-invoices/{id}/payment | Change paid status of tax-invoice document.
+[**TaxInvoicesIdStatusKeyStatusIdPost**](TaxInvoiceApi.md#taxinvoicesidstatuskeystatusidpost) | **POST** /tax-invoices/{id}/status-key/{statusId} | Change status of tax invoices document.
 [**TaxInvoicesInlinePost**](TaxInvoiceApi.md#taxinvoicesinlinepost) | **POST** /tax-invoices/inline | Create tax invocie document with discount and tax inline.
 [**TaxInvoicesPost**](TaxInvoiceApi.md#taxinvoicespost) | **POST** /tax-invoices | Create tax invocie document.
-[**TaxInvoicesSharedocumentPost**](TaxInvoiceApi.md#taxinvoicessharedocumentpost) | **POST** /tax-invoices/sharedocument | Share Document tax invoice
+[**TaxInvoicesSharedocumentPost**](TaxInvoiceApi.md#taxinvoicessharedocumentpost) | **POST** /tax-invoices/sharedocument | Share link tax invoice document.
 
 
 
@@ -22,6 +22,8 @@ Method | HTTP request | Description
 > SendEmailResponse TaxInvoicesEmailDocumentPost (string authorization, SendEmailCoppies sendEmailCoppies)
 
 Send Email tax invoice document
+
+ส่งเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ผ่านทางอีเมล ตามเลขที่เอกสารที่ต้องการ
 
 ### Example
 
@@ -96,9 +98,11 @@ No authorization required
 
 ## TaxInvoicesGet
 
-> SimpleDocumentResponse TaxInvoicesGet (string currentPage, string pageSize, string authorization, string sortBy = null, string filter = null)
+> InlineDocumentResponse TaxInvoicesGet (string currentPage, string pageSize, string authorization, string sortBy = null, string filter = null)
 
-List tax invocie documents.
+Get list all tax invocie documents.
+
+เรียกดูข้อมูลเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ทั้งหมดในระบบ
 
 ### Example
 
@@ -125,8 +129,8 @@ namespace Example
 
             try
             {
-                // List tax invocie documents.
-                SimpleDocumentResponse result = apiInstance.TaxInvoicesGet(currentPage, pageSize, authorization, sortBy, filter);
+                // Get list all tax invocie documents.
+                InlineDocumentResponse result = apiInstance.TaxInvoicesGet(currentPage, pageSize, authorization, sortBy, filter);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -153,7 +157,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SimpleDocumentResponse**](SimpleDocumentResponse.md)
+[**InlineDocumentResponse**](InlineDocumentResponse.md)
 
 ### Authorization
 
@@ -179,9 +183,11 @@ No authorization required
 
 ## TaxInvoicesIdAttachmentPost
 
-> void TaxInvoicesIdAttachmentPost (string authorization, string id, System.IO.Stream file = null)
+> AttachmentResponse TaxInvoicesIdAttachmentPost (string authorization, string id, System.IO.Stream file = null)
 
-Add Attachment to Tax Invoice
+Add Attachment to tax Invoices document.
+
+แนบไฟล์ รูปภาพ หรือ เอกสารที่เกี่ยวข้อง ในเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ
 
 ### Example
 
@@ -201,13 +207,14 @@ namespace Example
             Configuration.Default.BasePath = "https://openapi.flowaccount.com/v1";
             var apiInstance = new TaxInvoiceApi(Configuration.Default);
             var authorization = authorization_example;  // string |  (default to "Bearer accessToken")
-            var id = id_example;  // string | 
-            var file = BINARY_DATA_HERE;  // System.IO.Stream |  (optional) 
+            var id = id_example;  // string | documentId หรือ recordId ของเอกสารที่ต้องการแนบ
+            var file = BINARY_DATA_HERE;  // System.IO.Stream | รูปแบบ file ที่ใช้แนบในเอกสารเป็นแบบ Binary (optional) 
 
             try
             {
-                // Add Attachment to Tax Invoice
-                apiInstance.TaxInvoicesIdAttachmentPost(authorization, id, file);
+                // Add Attachment to tax Invoices document.
+                AttachmentResponse result = apiInstance.TaxInvoicesIdAttachmentPost(authorization, id, file);
+                Debug.WriteLine(result);
             }
             catch (ApiException e)
             {
@@ -226,12 +233,12 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**|  | [default to &quot;Bearer accessToken&quot;]
- **id** | **string**|  | 
- **file** | **System.IO.Stream**|  | [optional] 
+ **id** | **string**| documentId หรือ recordId ของเอกสารที่ต้องการแนบ | 
+ **file** | **System.IO.Stream**| รูปแบบ file ที่ใช้แนบในเอกสารเป็นแบบ Binary | [optional] 
 
 ### Return type
 
-void (empty response body)
+[**AttachmentResponse**](AttachmentResponse.md)
 
 ### Authorization
 
@@ -240,7 +247,86 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: multipart/form-data
-- **Accept**: Not defined
+- **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | 200 response |  -  |
+| **401** | 401 response |  -  |
+| **500** | 500 response |  -  |
+
+[[Back to top]](#)
+[[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
+
+
+## TaxInvoicesIdDelete
+
+> DeleteResponse TaxInvoicesIdDelete (string authorization, string id)
+
+Get tax invoices document.
+
+ลบ เอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ <br> ** การลบเอกสาร เอกสารต้องอยู่ในสถานะรอดำเนินการ 
+
+### Example
+
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Flowaccount.OpenAPITools.Api;
+using Flowaccount.OpenAPITools.Client;
+using Flowaccount.OpenAPITools.Model;
+
+namespace Example
+{
+    public class TaxInvoicesIdDeleteExample
+    {
+        public static void Main()
+        {
+            Configuration.Default.BasePath = "https://openapi.flowaccount.com/v1";
+            var apiInstance = new TaxInvoiceApi(Configuration.Default);
+            var authorization = authorization_example;  // string |  (default to "Bearer accessToken")
+            var id = id_example;  // string | ID เอกสารใช้ recordId
+
+            try
+            {
+                // Get tax invoices document.
+                DeleteResponse result = apiInstance.TaxInvoicesIdDelete(authorization, id);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException e)
+            {
+                Debug.Print("Exception when calling TaxInvoiceApi.TaxInvoicesIdDelete: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorization** | **string**|  | [default to &quot;Bearer accessToken&quot;]
+ **id** | **string**| ID เอกสารใช้ recordId | 
+
+### Return type
+
+[**DeleteResponse**](DeleteResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
 ### HTTP response details
 | Status code | Description | Response headers |
@@ -259,7 +345,9 @@ No authorization required
 
 > SimpleDocumentResponse TaxInvoicesIdGet (string authorization, string id)
 
-Get document
+Get tax invoices document.
+
+เรียกดูข้อมูลเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ตามเลขที่เอกสารที่ต้องการ
 
 ### Example
 
@@ -278,12 +366,12 @@ namespace Example
         {
             Configuration.Default.BasePath = "https://openapi.flowaccount.com/v1";
             var apiInstance = new TaxInvoiceApi(Configuration.Default);
-            var authorization = authorization_example;  // string |  (default to "Bearer accessToken")
-            var id = id_example;  // string | 
+            var authorization = authorization_example;  // string | ID เอกสารใช้ recordId (default to "Bearer accessToken")
+            var id = id_example;  // string | ID เอกสารใช้ recordId
 
             try
             {
-                // Get document
+                // Get tax invoices document.
                 SimpleDocumentResponse result = apiInstance.TaxInvoicesIdGet(authorization, id);
                 Debug.WriteLine(result);
             }
@@ -303,8 +391,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authorization** | **string**|  | [default to &quot;Bearer accessToken&quot;]
- **id** | **string**|  | 
+ **authorization** | **string**| ID เอกสารใช้ recordId | [default to &quot;Bearer accessToken&quot;]
+ **id** | **string**| ID เอกสารใช้ recordId | 
 
 ### Return type
 
@@ -332,11 +420,13 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## TaxInvoicesIdInlinePut
+## TaxInvoicesIdPaymentPost
 
-> InlineDocumentResponse TaxInvoicesIdInlinePut (string authorization, string id, InlineDocument inlineDocument)
+> InlineDocumentResponse TaxInvoicesIdPaymentPost (string authorization, string id, PaymentDocument paymentDocument)
 
-Update document
+Change paid status of tax-invoice document.
+
+เก็บเงิน เอกสารพร้อมเปลี่ยนสถานะเอกสาร เฉพาะเอกสารใบกำกับภาษี/ใบเสร็จรับเงิน (Tax Invoice/Reciept)
 
 ### Example
 
@@ -349,25 +439,25 @@ using Flowaccount.OpenAPITools.Model;
 
 namespace Example
 {
-    public class TaxInvoicesIdInlinePutExample
+    public class TaxInvoicesIdPaymentPostExample
     {
         public static void Main()
         {
             Configuration.Default.BasePath = "https://openapi.flowaccount.com/v1";
             var apiInstance = new TaxInvoiceApi(Configuration.Default);
             var authorization = authorization_example;  // string |  (default to "Bearer accessToken")
-            var id = id_example;  // string | 
-            var inlineDocument = new InlineDocument(); // InlineDocument | 
+            var id = id_example;  // string | ID เอกสารใช้ recordId หรือ documentId
+            var paymentDocument = new PaymentDocument(); // PaymentDocument | 
 
             try
             {
-                // Update document
-                InlineDocumentResponse result = apiInstance.TaxInvoicesIdInlinePut(authorization, id, inlineDocument);
+                // Change paid status of tax-invoice document.
+                InlineDocumentResponse result = apiInstance.TaxInvoicesIdPaymentPost(authorization, id, paymentDocument);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
             {
-                Debug.Print("Exception when calling TaxInvoiceApi.TaxInvoicesIdInlinePut: " + e.Message );
+                Debug.Print("Exception when calling TaxInvoiceApi.TaxInvoicesIdPaymentPost: " + e.Message );
                 Debug.Print("Status Code: "+ e.ErrorCode);
                 Debug.Print(e.StackTrace);
             }
@@ -382,8 +472,8 @@ namespace Example
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **authorization** | **string**|  | [default to &quot;Bearer accessToken&quot;]
- **id** | **string**|  | 
- **inlineDocument** | [**InlineDocument**](InlineDocument.md)|  | 
+ **id** | **string**| ID เอกสารใช้ recordId หรือ documentId | 
+ **paymentDocument** | [**PaymentDocument**](PaymentDocument.md)|  | 
 
 ### Return type
 
@@ -411,90 +501,13 @@ No authorization required
 [[Back to README]](../README.md)
 
 
-## TaxInvoicesIdPut
-
-> SimpleDocumentResponse TaxInvoicesIdPut (string authorization, string id, SimpleDocument simpleDocument)
-
-Update document
-
-### Example
-
-```csharp
-using System.Collections.Generic;
-using System.Diagnostics;
-using Flowaccount.OpenAPITools.Api;
-using Flowaccount.OpenAPITools.Client;
-using Flowaccount.OpenAPITools.Model;
-
-namespace Example
-{
-    public class TaxInvoicesIdPutExample
-    {
-        public static void Main()
-        {
-            Configuration.Default.BasePath = "https://openapi.flowaccount.com/v1";
-            var apiInstance = new TaxInvoiceApi(Configuration.Default);
-            var authorization = authorization_example;  // string |  (default to "Bearer accessToken")
-            var id = id_example;  // string | 
-            var simpleDocument = new SimpleDocument(); // SimpleDocument | 
-
-            try
-            {
-                // Update document
-                SimpleDocumentResponse result = apiInstance.TaxInvoicesIdPut(authorization, id, simpleDocument);
-                Debug.WriteLine(result);
-            }
-            catch (ApiException e)
-            {
-                Debug.Print("Exception when calling TaxInvoiceApi.TaxInvoicesIdPut: " + e.Message );
-                Debug.Print("Status Code: "+ e.ErrorCode);
-                Debug.Print(e.StackTrace);
-            }
-        }
-    }
-}
-```
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **authorization** | **string**|  | [default to &quot;Bearer accessToken&quot;]
- **id** | **string**|  | 
- **simpleDocument** | [**SimpleDocument**](SimpleDocument.md)|  | 
-
-### Return type
-
-[**SimpleDocumentResponse**](SimpleDocumentResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
-- **Content-Type**: application/json
-- **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | 200 response |  -  |
-| **401** | 401 response |  -  |
-| **500** | 500 response |  -  |
-
-[[Back to top]](#)
-[[Back to API list]](../README.md#documentation-for-api-endpoints)
-[[Back to Model list]](../README.md#documentation-for-models)
-[[Back to README]](../README.md)
-
-
 ## TaxInvoicesIdStatusKeyStatusIdPost
 
-> StatusResponse TaxInvoicesIdStatusKeyStatusIdPost (string authorization, string id, string statusId)
+> InlineDocumentResponse TaxInvoicesIdStatusKeyStatusIdPost (string authorization, string id, string statusId)
 
-change status document tax invoices
+Change status of tax invoices document.
+
+เปลี่ยนสถานะของเอกสารเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน สร้างเอกสารใหม่ครั้งแรกจะได้รับสถานะ รอดำเนินการ (awaiting)
 
 ### Example
 
@@ -519,8 +532,8 @@ namespace Example
 
             try
             {
-                // change status document tax invoices
-                StatusResponse result = apiInstance.TaxInvoicesIdStatusKeyStatusIdPost(authorization, id, statusId);
+                // Change status of tax invoices document.
+                InlineDocumentResponse result = apiInstance.TaxInvoicesIdStatusKeyStatusIdPost(authorization, id, statusId);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -545,7 +558,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**StatusResponse**](StatusResponse.md)
+[**InlineDocumentResponse**](InlineDocumentResponse.md)
 
 ### Authorization
 
@@ -574,6 +587,8 @@ No authorization required
 > InlineDocumentResponse TaxInvoicesInlinePost (string authorization, InlineDocument inlineDocument)
 
 Create tax invocie document with discount and tax inline.
+
+สร้างเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน แบบส่วนลด หรือ ภาษี แยกตามรายการสินค้า เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting) <br> <br> ข้อมูลการออกเอกสารใบกำกับภาษี : https://flowaccount.com/blog/ใบกำกับภาษี
 
 ### Example
 
@@ -652,6 +667,8 @@ No authorization required
 
 Create tax invocie document.
 
+สร้างเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน เมื่อสร้างสำเร็จสถานะเอกสารจะอยู่ในสถานะ รอดำเนินการ (awaiting) <br> <br> ข้อมูลการออกเอกสารใบกำกับภาษี : https://flowaccount.com/blog/ใบกำกับภาษี
+
 ### Example
 
 ```csharp
@@ -727,7 +744,9 @@ No authorization required
 
 > ShareDocumentResponse TaxInvoicesSharedocumentPost (string authorization, ShareDocument shareDocument)
 
-Share Document tax invoice
+Share link tax invoice document.
+
+แชร์ลิงค์ เอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ที่ต้องการ จะได้รับลิงค์สำหรับแชร์และเรียกดูเอกสาร
 
 ### Example
 
@@ -751,7 +770,7 @@ namespace Example
 
             try
             {
-                // Share Document tax invoice
+                // Share link tax invoice document.
                 ShareDocumentResponse result = apiInstance.TaxInvoicesSharedocumentPost(authorization, shareDocument);
                 Debug.WriteLine(result);
             }

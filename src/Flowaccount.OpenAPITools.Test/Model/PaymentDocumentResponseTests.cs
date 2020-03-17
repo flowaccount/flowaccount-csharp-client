@@ -1,7 +1,7 @@
 /* 
  * FlowAccount Open API
  *
- * FlowAccount.com โปรแกรมบัญชีออนไลน์ใช้งานง่าย สำหรับธุรกิจที่พึ่งเริ่มต้น
+ * FlowAccount.com โปรแกรมบัญชีออนไลน์ใช้งานง่าย สำหรับธุรกิจที่พึ่งเริ่มต้น   # Introduction **Servers Production**    site: https://www.flowaccount.com    api url: https://openapi.flowaccount.com/v1    **Beta test**   site: http://sandbox-new.flowaccount.com/    api url: https://openapi.flowaccount.com/test
  *
  * The version of the OpenAPI document: 2-oas3
  * Contact: developer@flowaccount.com
@@ -66,14 +66,6 @@ namespace Flowaccount.OpenAPITools.Test
 
 
         /// <summary>
-        /// Test the property 'DocumentId'
-        /// </summary>
-        [Test]
-        public void DocumentIdTest()
-        {
-            // TODO unit test for the property 'DocumentId'
-        }
-        /// <summary>
         /// Test the property 'PaymentDate'
         /// </summary>
         [Test]
@@ -98,12 +90,12 @@ namespace Flowaccount.OpenAPITools.Test
             // TODO unit test for the property 'PaymentDeductionType'
         }
         /// <summary>
-        /// Test the property 'DeductionAmount'
+        /// Test the property 'PaymentDeductionAmount'
         /// </summary>
         [Test]
-        public void DeductionAmountTest()
+        public void PaymentDeductionAmountTest()
         {
-            // TODO unit test for the property 'DeductionAmount'
+            // TODO unit test for the property 'PaymentDeductionAmount'
         }
         /// <summary>
         /// Test the property 'WithheldPercentage'
@@ -122,12 +114,12 @@ namespace Flowaccount.OpenAPITools.Test
             // TODO unit test for the property 'WithheldAmount'
         }
         /// <summary>
-        /// Test the property 'Charge'
+        /// Test the property 'PaymentCharge'
         /// </summary>
         [Test]
-        public void ChargeTest()
+        public void PaymentChargeTest()
         {
-            // TODO unit test for the property 'Charge'
+            // TODO unit test for the property 'PaymentCharge'
         }
         /// <summary>
         /// Test the property 'PaymentMethod'
@@ -146,12 +138,12 @@ namespace Flowaccount.OpenAPITools.Test
             // TODO unit test for the property 'PaymentChannel'
         }
         /// <summary>
-        /// Test the property 'PaymentRemarks'
+        /// Test the property 'BankAccountType'
         /// </summary>
         [Test]
-        public void PaymentRemarksTest()
+        public void BankAccountTypeTest()
         {
-            // TODO unit test for the property 'PaymentRemarks'
+            // TODO unit test for the property 'BankAccountType'
         }
         /// <summary>
         /// Test the property 'BankAccountName'
@@ -186,14 +178,6 @@ namespace Flowaccount.OpenAPITools.Test
             // TODO unit test for the property 'ChequeNumber'
         }
         /// <summary>
-        /// Test the property 'ChequeBankAccountId'
-        /// </summary>
-        [Test]
-        public void ChequeBankAccountIdTest()
-        {
-            // TODO unit test for the property 'ChequeBankAccountId'
-        }
-        /// <summary>
         /// Test the property 'CreditCardBankAccountId'
         /// </summary>
         [Test]
@@ -202,12 +186,12 @@ namespace Flowaccount.OpenAPITools.Test
             // TODO unit test for the property 'CreditCardBankAccountId'
         }
         /// <summary>
-        /// Test the property 'Remarks'
+        /// Test the property 'PaymentRemarks'
         /// </summary>
         [Test]
-        public void RemarksTest()
+        public void PaymentRemarksTest()
         {
-            // TODO unit test for the property 'Remarks'
+            // TODO unit test for the property 'PaymentRemarks'
         }
         /// <summary>
         /// Test the property 'RemainingCollectedType'

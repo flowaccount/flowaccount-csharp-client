@@ -5,10 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**GrantType** | **string** |  | [optional] 
-**Scope** | **string** |  | [optional] 
-**ClientId** | **string** |  | [optional] 
-**ClientSecret** | **string** |  | [optional] 
+**File** | **System.IO.Stream** | รูปแบบ file ที่ใช้แนบในเอกสารเป็นแบบ Binary | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models)
 [[Back to API list]](../README.md#documentation-for-api-endpoints)

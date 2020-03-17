@@ -1,7 +1,7 @@
 /* 
  * FlowAccount Open API
  *
- * FlowAccount.com โปรแกรมบัญชีออนไลน์ใช้งานง่าย สำหรับธุรกิจที่พึ่งเริ่มต้น
+ * FlowAccount.com โปรแกรมบัญชีออนไลน์ใช้งานง่าย สำหรับธุรกิจที่พึ่งเริ่มต้น   # Introduction **Servers Production**    site: https://www.flowaccount.com    api url: https://openapi.flowaccount.com/v1    **Beta test**   site: http://sandbox-new.flowaccount.com/    api url: https://openapi.flowaccount.com/test
  *
  * The version of the OpenAPI document: 2-oas3
  * Contact: developer@flowaccount.com
@@ -66,20 +66,20 @@ namespace Flowaccount.OpenAPITools.Test
 
 
         /// <summary>
-        /// Test the property 'Id'
+        /// Test the property 'Status'
         /// </summary>
         [Test]
-        public void IdTest()
+        public void StatusTest()
         {
-            // TODO unit test for the property 'Id'
+            // TODO unit test for the property 'Status'
         }
         /// <summary>
-        /// Test the property 'Type'
+        /// Test the property 'Message'
         /// </summary>
         [Test]
-        public void TypeTest()
+        public void MessageTest()
         {
-            // TODO unit test for the property 'Type'
+            // TODO unit test for the property 'Message'
         }
         /// <summary>
         /// Test the property 'Code'
@@ -90,108 +90,12 @@ namespace Flowaccount.OpenAPITools.Test
             // TODO unit test for the property 'Code'
         }
         /// <summary>
-        /// Test the property 'Name'
+        /// Test the property 'Data'
         /// </summary>
         [Test]
-        public void NameTest()
+        public void DataTest()
         {
-            // TODO unit test for the property 'Name'
-        }
-        /// <summary>
-        /// Test the property 'SellDescription'
-        /// </summary>
-        [Test]
-        public void SellDescriptionTest()
-        {
-            // TODO unit test for the property 'SellDescription'
-        }
-        /// <summary>
-        /// Test the property 'SellPrice'
-        /// </summary>
-        [Test]
-        public void SellPriceTest()
-        {
-            // TODO unit test for the property 'SellPrice'
-        }
-        /// <summary>
-        /// Test the property 'SellVatType'
-        /// </summary>
-        [Test]
-        public void SellVatTypeTest()
-        {
-            // TODO unit test for the property 'SellVatType'
-        }
-        /// <summary>
-        /// Test the property 'UnitName'
-        /// </summary>
-        [Test]
-        public void UnitNameTest()
-        {
-            // TODO unit test for the property 'UnitName'
-        }
-        /// <summary>
-        /// Test the property 'CategoryName'
-        /// </summary>
-        [Test]
-        public void CategoryNameTest()
-        {
-            // TODO unit test for the property 'CategoryName'
-        }
-        /// <summary>
-        /// Test the property 'Barcode'
-        /// </summary>
-        [Test]
-        public void BarcodeTest()
-        {
-            // TODO unit test for the property 'Barcode'
-        }
-        /// <summary>
-        /// Test the property 'BuyDescription'
-        /// </summary>
-        [Test]
-        public void BuyDescriptionTest()
-        {
-            // TODO unit test for the property 'BuyDescription'
-        }
-        /// <summary>
-        /// Test the property 'BuyPrice'
-        /// </summary>
-        [Test]
-        public void BuyPriceTest()
-        {
-            // TODO unit test for the property 'BuyPrice'
-        }
-        /// <summary>
-        /// Test the property 'BuyVatType'
-        /// </summary>
-        [Test]
-        public void BuyVatTypeTest()
-        {
-            // TODO unit test for the property 'BuyVatType'
-        }
-        /// <summary>
-        /// Test the property 'InventoryPublishedOn'
-        /// </summary>
-        [Test]
-        public void InventoryPublishedOnTest()
-        {
-            // TODO unit test for the property 'InventoryPublishedOn'
-        }
-        /// <summary>
-        /// Test the property 'InventoryQuantity'
-        /// </summary>
-        [Test]
-        public void InventoryQuantityTest()
-        {
-            // TODO unit test for the property 'InventoryQuantity'
-        }
-        /// <summary>
-        /// Test the property 'InventoryPrice'
-        /// </summary>
-        [Test]
-        public void InventoryPriceTest()
-        {
-            // TODO unit test for the property 'InventoryPrice'
+            // TODO unit test for the property 'Data'
         }
 
     }

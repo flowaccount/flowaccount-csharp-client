@@ -193,6 +193,38 @@ namespace Flowaccount.OpenAPITools.Test
         {
             // TODO unit test for the property 'InventoryPrice'
         }
+        /// <summary>
+        /// Test the property 'AverageBuyPrice'
+        /// </summary>
+        [Test]
+        public void AverageBuyPriceTest()
+        {
+            // TODO unit test for the property 'AverageBuyPrice'
+        }
+        /// <summary>
+        /// Test the property 'AverageSellPrice'
+        /// </summary>
+        [Test]
+        public void AverageSellPriceTest()
+        {
+            // TODO unit test for the property 'AverageSellPrice'
+        }
+        /// <summary>
+        /// Test the property 'RemainingStock'
+        /// </summary>
+        [Test]
+        public void RemainingStockTest()
+        {
+            // TODO unit test for the property 'RemainingStock'
+        }
+        /// <summary>
+        /// Test the property 'TotalValueInHand'
+        /// </summary>
+        [Test]
+        public void TotalValueInHandTest()
+        {
+            // TODO unit test for the property 'TotalValueInHand'
+        }
 
     }
 

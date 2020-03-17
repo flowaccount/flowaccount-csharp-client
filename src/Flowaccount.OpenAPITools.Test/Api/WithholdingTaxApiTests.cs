@@ -1,7 +1,7 @@
 /* 
  * FlowAccount Open API
  *
- * FlowAccount.com โปรแกรมบัญชีออนไลน์ใช้งานง่าย สำหรับธุรกิจที่พึ่งเริ่มต้น
+ * FlowAccount.com โปรแกรมบัญชีออนไลน์ใช้งานง่าย สำหรับธุรกิจที่พึ่งเริ่มต้น   # Introduction **Servers Production**    site: https://www.flowaccount.com    api url: https://openapi.flowaccount.com/v1    **Beta test**   site: http://sandbox-new.flowaccount.com/    api url: https://openapi.flowaccount.com/test
  *
  * The version of the OpenAPI document: 2-oas3
  * Contact: developer@flowaccount.com
@@ -64,6 +64,19 @@ namespace Flowaccount.OpenAPITools.Test
 
         
         /// <summary>
+        /// Test WithholdingTaxesEmailDocumentPost
+        /// </summary>
+        [Test]
+        public void WithholdingTaxesEmailDocumentPostTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string authorization = null;
+            //SendEmailSimple sendEmailSimple = null;
+            //var response = instance.WithholdingTaxesEmailDocumentPost(authorization, sendEmailSimple);
+            //Assert.IsInstanceOf(typeof(SendEmailResponse), response, "response is SendEmailResponse");
+        }
+        
+        /// <summary>
         /// Test WithholdingTaxesGet
         /// </summary>
         [Test]
@@ -73,6 +86,33 @@ namespace Flowaccount.OpenAPITools.Test
             //string authorization = null;
             //var response = instance.WithholdingTaxesGet(authorization);
             //Assert.IsInstanceOf(typeof(WithholidingTaxDocumentResponse), response, "response is WithholidingTaxDocumentResponse");
+        }
+        
+        /// <summary>
+        /// Test WithholdingTaxesIdAttachmentPost
+        /// </summary>
+        [Test]
+        public void WithholdingTaxesIdAttachmentPostTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string authorization = null;
+            //string id = null;
+            //System.IO.Stream file = null;
+            //var response = instance.WithholdingTaxesIdAttachmentPost(authorization, id, file);
+            //Assert.IsInstanceOf(typeof(AttachmentResponse), response, "response is AttachmentResponse");
+        }
+        
+        /// <summary>
+        /// Test WithholdingTaxesIdDelete
+        /// </summary>
+        [Test]
+        public void WithholdingTaxesIdDeleteTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string authorization = null;
+            //string id = null;
+            //var response = instance.WithholdingTaxesIdDelete(authorization, id);
+            //Assert.IsInstanceOf(typeof(DeleteResponse), response, "response is DeleteResponse");
         }
         
         /// <summary>
@@ -89,6 +129,20 @@ namespace Flowaccount.OpenAPITools.Test
         }
         
         /// <summary>
+        /// Test WithholdingTaxesIdStatusKeyStatusIdPost
+        /// </summary>
+        [Test]
+        public void WithholdingTaxesIdStatusKeyStatusIdPostTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string authorization = null;
+            //string id = null;
+            //string statusId = null;
+            //var response = instance.WithholdingTaxesIdStatusKeyStatusIdPost(authorization, id, statusId);
+            //Assert.IsInstanceOf(typeof(WithholidingTaxDocumentResponse), response, "response is WithholidingTaxDocumentResponse");
+        }
+        
+        /// <summary>
         /// Test WithholdingTaxesPost
         /// </summary>
         [Test]
@@ -99,6 +153,19 @@ namespace Flowaccount.OpenAPITools.Test
             //WithholidingTaxDocument withholidingTaxDocument = null;
             //var response = instance.WithholdingTaxesPost(authorization, withholidingTaxDocument);
             //Assert.IsInstanceOf(typeof(WithholidingTaxDocumentResponse), response, "response is WithholidingTaxDocumentResponse");
+        }
+        
+        /// <summary>
+        /// Test WithholdingTaxesSharedocumentPost
+        /// </summary>
+        [Test]
+        public void WithholdingTaxesSharedocumentPostTest()
+        {
+            // TODO uncomment below to test the method and replace null with proper value
+            //string authorization = null;
+            //ShareDocument shareDocument = null;
+            //var response = instance.WithholdingTaxesSharedocumentPost(authorization, shareDocument);
+            //Assert.IsInstanceOf(typeof(ShareDocumentResponse), response, "response is ShareDocumentResponse");
         }
         
     }
