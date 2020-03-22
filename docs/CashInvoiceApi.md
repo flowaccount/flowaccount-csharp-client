@@ -98,7 +98,7 @@ No authorization required
 
 ## CashInvoicesGet
 
-> InlineDocumentResponse CashInvoicesGet (string currentPage, string pageSize, string authorization, string sortBy = null, string filter = null)
+> InlineDocumentResponse CashInvoicesGet (int currentPage, int pageSize, string authorization, string sortBy = null, string filter = null)
 
 Get list all cash invoices documents
 
@@ -121,8 +121,8 @@ namespace Example
         {
             Configuration.Default.BasePath = "https://openapi.flowaccount.com/v1";
             var apiInstance = new CashInvoiceApi(Configuration.Default);
-            var currentPage = currentPage_example;  // string | 
-            var pageSize = pageSize_example;  // string | 
+            var currentPage = 56;  // int | Query current page document cash invoices. <br>Example Pattern: <ex>/cash-invoices?currentPage=1 </ex><ex>/cash-invoices?currentPage=1&pageSize=20</ex>
+            var pageSize = 56;  // int | Query document cash invoices list amount per page. <br>Example Pattern: <ex> /cash-invoices?pageSize=20 </ex>
             var authorization = authorization_example;  // string |  (default to "Bearer accessToken")
             var sortBy = sortBy_example;  // string |  (optional) 
             var filter = filter_example;  // string |  (optional) 
@@ -149,8 +149,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currentPage** | **string**|  | 
- **pageSize** | **string**|  | 
+ **currentPage** | **int**| Query current page document cash invoices. &lt;br&gt;Example Pattern: &lt;ex&gt;/cash-invoices?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/cash-invoices?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt; | 
+ **pageSize** | **int**| Query document cash invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /cash-invoices?pageSize&#x3D;20 &lt;/ex&gt; | 
  **authorization** | **string**|  | [default to &quot;Bearer accessToken&quot;]
  **sortBy** | **string**|  | [optional] 
  **filter** | **string**|  | [optional] 

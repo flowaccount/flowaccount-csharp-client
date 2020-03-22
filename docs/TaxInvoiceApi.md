@@ -98,7 +98,7 @@ No authorization required
 
 ## TaxInvoicesGet
 
-> InlineDocumentResponse TaxInvoicesGet (string currentPage, string pageSize, string authorization, string sortBy = null, string filter = null)
+> InlineDocumentResponse TaxInvoicesGet (int currentPage, int pageSize, string authorization, string sortBy = null, string filter = null)
 
 Get list all tax invocie documents.
 
@@ -121,8 +121,8 @@ namespace Example
         {
             Configuration.Default.BasePath = "https://openapi.flowaccount.com/v1";
             var apiInstance = new TaxInvoiceApi(Configuration.Default);
-            var currentPage = currentPage_example;  // string | 
-            var pageSize = pageSize_example;  // string | 
+            var currentPage = 56;  // int | Query current page document tax invoices. <br>Example Pattern: <ex>/tax-invoices?currentPage=1 </ex><ex>/tax-invoices?currentPage=1&pageSize=20</ex>
+            var pageSize = 56;  // int | Query document tax invoices list amount per page. <br>Example Pattern: <ex> /tax-invoices?pageSize=20 </ex>
             var authorization = authorization_example;  // string |  (default to "Bearer accessToken")
             var sortBy = sortBy_example;  // string |  (optional) 
             var filter = filter_example;  // string |  (optional) 
@@ -149,8 +149,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **currentPage** | **string**|  | 
- **pageSize** | **string**|  | 
+ **currentPage** | **int**| Query current page document tax invoices. &lt;br&gt;Example Pattern: &lt;ex&gt;/tax-invoices?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/tax-invoices?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt; | 
+ **pageSize** | **int**| Query document tax invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?pageSize&#x3D;20 &lt;/ex&gt; | 
  **authorization** | **string**|  | [default to &quot;Bearer accessToken&quot;]
  **sortBy** | **string**|  | [optional] 
  **filter** | **string**|  | [optional] 

@@ -254,7 +254,7 @@ No authorization required
 
 ## ExpensesGet
 
-> ExpenseInlineDocumentResponse ExpensesGet (string authorization)
+> ExpenseInlineDocumentResponse ExpensesGet (int currentPage, int pageSize, string authorization, string sortBy = null, string filter = null)
 
 Get list all expenses documents.
 
@@ -277,12 +277,16 @@ namespace Example
         {
             Configuration.Default.BasePath = "https://openapi.flowaccount.com/v1";
             var apiInstance = new ExpensesApi(Configuration.Default);
+            var currentPage = 56;  // int | Query current page document expenses. <br>Example Pattern: <ex>/expenses?currentPage=1 </ex><ex>/expenses?currentPage=1&pageSize=20</ex>
+            var pageSize = 56;  // int | Query document expenses list amount per page. <br>Example Pattern: <ex> /expenses?pageSize=20 </ex>
             var authorization = authorization_example;  // string |  (default to "Bearer accessToken")
+            var sortBy = sortBy_example;  // string |  (optional) 
+            var filter = filter_example;  // string |  (optional) 
 
             try
             {
                 // Get list all expenses documents.
-                ExpenseInlineDocumentResponse result = apiInstance.ExpensesGet(authorization);
+                ExpenseInlineDocumentResponse result = apiInstance.ExpensesGet(currentPage, pageSize, authorization, sortBy, filter);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -301,7 +305,11 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **currentPage** | **int**| Query current page document expenses. &lt;br&gt;Example Pattern: &lt;ex&gt;/expenses?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/expenses?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt; | 
+ **pageSize** | **int**| Query document expenses list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?pageSize&#x3D;20 &lt;/ex&gt; | 
  **authorization** | **string**|  | [default to &quot;Bearer accessToken&quot;]
+ **sortBy** | **string**|  | [optional] 
+ **filter** | **string**|  | [optional] 
 
 ### Return type
 

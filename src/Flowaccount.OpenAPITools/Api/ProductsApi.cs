@@ -31,9 +31,11 @@ namespace Flowaccount.OpenAPITools.Api
         /// 
         /// </remarks>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currentPage">Query current page products item. &lt;br&gt;Example Pattern: &lt;ex&gt;/products?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/products?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query products list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /products?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
         /// <returns>ProductResponse</returns>
-        ProductResponse ProductsGet (string authorization);
+        ProductResponse ProductsGet (int currentPage, int pageSize, string authorization);
 
         /// <summary>
         /// Get list all products.
@@ -42,9 +44,11 @@ namespace Flowaccount.OpenAPITools.Api
         /// 
         /// </remarks>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currentPage">Query current page products item. &lt;br&gt;Example Pattern: &lt;ex&gt;/products?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/products?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query products list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /products?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
         /// <returns>ApiResponse of ProductResponse</returns>
-        ApiResponse<ProductResponse> ProductsGetWithHttpInfo (string authorization);
+        ApiResponse<ProductResponse> ProductsGetWithHttpInfo (int currentPage, int pageSize, string authorization);
         /// <summary>
         /// Delete products.
         /// </summary>
@@ -146,9 +150,11 @@ namespace Flowaccount.OpenAPITools.Api
         /// 
         /// </remarks>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currentPage">Query current page products item. &lt;br&gt;Example Pattern: &lt;ex&gt;/products?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/products?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query products list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /products?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
         /// <returns>Task of ProductResponse</returns>
-        System.Threading.Tasks.Task<ProductResponse> ProductsGetAsync (string authorization);
+        System.Threading.Tasks.Task<ProductResponse> ProductsGetAsync (int currentPage, int pageSize, string authorization);
 
         /// <summary>
         /// Get list all products.
@@ -157,9 +163,11 @@ namespace Flowaccount.OpenAPITools.Api
         /// 
         /// </remarks>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currentPage">Query current page products item. &lt;br&gt;Example Pattern: &lt;ex&gt;/products?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/products?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query products list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /products?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
         /// <returns>Task of ApiResponse (ProductResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ProductResponse>> ProductsGetAsyncWithHttpInfo (string authorization);
+        System.Threading.Tasks.Task<ApiResponse<ProductResponse>> ProductsGetAsyncWithHttpInfo (int currentPage, int pageSize, string authorization);
         /// <summary>
         /// Delete products.
         /// </summary>
@@ -367,11 +375,13 @@ namespace Flowaccount.OpenAPITools.Api
         /// Get list all products. 
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currentPage">Query current page products item. &lt;br&gt;Example Pattern: &lt;ex&gt;/products?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/products?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query products list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /products?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
         /// <returns>ProductResponse</returns>
-        public ProductResponse ProductsGet (string authorization)
+        public ProductResponse ProductsGet (int currentPage, int pageSize, string authorization)
         {
-             ApiResponse<ProductResponse> localVarResponse = ProductsGetWithHttpInfo(authorization);
+             ApiResponse<ProductResponse> localVarResponse = ProductsGetWithHttpInfo(currentPage, pageSize, authorization);
              return localVarResponse.Data;
         }
 
@@ -379,10 +389,18 @@ namespace Flowaccount.OpenAPITools.Api
         /// Get list all products. 
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currentPage">Query current page products item. &lt;br&gt;Example Pattern: &lt;ex&gt;/products?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/products?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query products list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /products?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
         /// <returns>ApiResponse of ProductResponse</returns>
-        public ApiResponse<ProductResponse> ProductsGetWithHttpInfo (string authorization)
+        public ApiResponse<ProductResponse> ProductsGetWithHttpInfo (int currentPage, int pageSize, string authorization)
         {
+            // verify the required parameter 'currentPage' is set
+            if (currentPage == null)
+                throw new ApiException(400, "Missing required parameter 'currentPage' when calling ProductsApi->ProductsGet");
+            // verify the required parameter 'pageSize' is set
+            if (pageSize == null)
+                throw new ApiException(400, "Missing required parameter 'pageSize' when calling ProductsApi->ProductsGet");
             // verify the required parameter 'authorization' is set
             if (authorization == null)
                 throw new ApiException(400, "Missing required parameter 'authorization' when calling ProductsApi->ProductsGet");
@@ -408,6 +426,8 @@ namespace Flowaccount.OpenAPITools.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (currentPage != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "currentPage", currentPage)); // query parameter
+            if (pageSize != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "pageSize", pageSize)); // query parameter
             if (authorization != null) localVarHeaderParams.Add("Authorization", this.Configuration.ApiClient.ParameterToString(authorization)); // header parameter
 
 
@@ -433,11 +453,13 @@ namespace Flowaccount.OpenAPITools.Api
         /// Get list all products. 
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currentPage">Query current page products item. &lt;br&gt;Example Pattern: &lt;ex&gt;/products?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/products?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query products list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /products?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
         /// <returns>Task of ProductResponse</returns>
-        public async System.Threading.Tasks.Task<ProductResponse> ProductsGetAsync (string authorization)
+        public async System.Threading.Tasks.Task<ProductResponse> ProductsGetAsync (int currentPage, int pageSize, string authorization)
         {
-             ApiResponse<ProductResponse> localVarResponse = await ProductsGetAsyncWithHttpInfo(authorization);
+             ApiResponse<ProductResponse> localVarResponse = await ProductsGetAsyncWithHttpInfo(currentPage, pageSize, authorization);
              return localVarResponse.Data;
 
         }
@@ -446,10 +468,18 @@ namespace Flowaccount.OpenAPITools.Api
         /// Get list all products. 
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currentPage">Query current page products item. &lt;br&gt;Example Pattern: &lt;ex&gt;/products?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/products?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query products list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /products?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
         /// <returns>Task of ApiResponse (ProductResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ProductResponse>> ProductsGetAsyncWithHttpInfo (string authorization)
+        public async System.Threading.Tasks.Task<ApiResponse<ProductResponse>> ProductsGetAsyncWithHttpInfo (int currentPage, int pageSize, string authorization)
         {
+            // verify the required parameter 'currentPage' is set
+            if (currentPage == null)
+                throw new ApiException(400, "Missing required parameter 'currentPage' when calling ProductsApi->ProductsGet");
+            // verify the required parameter 'pageSize' is set
+            if (pageSize == null)
+                throw new ApiException(400, "Missing required parameter 'pageSize' when calling ProductsApi->ProductsGet");
             // verify the required parameter 'authorization' is set
             if (authorization == null)
                 throw new ApiException(400, "Missing required parameter 'authorization' when calling ProductsApi->ProductsGet");
@@ -475,6 +505,8 @@ namespace Flowaccount.OpenAPITools.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (currentPage != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "currentPage", currentPage)); // query parameter
+            if (pageSize != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "pageSize", pageSize)); // query parameter
             if (authorization != null) localVarHeaderParams.Add("Authorization", this.Configuration.ApiClient.ParameterToString(authorization)); // header parameter
 
 

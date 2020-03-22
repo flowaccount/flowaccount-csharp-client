@@ -54,9 +54,13 @@ namespace Flowaccount.OpenAPITools.Api
         /// เรียกดูข้อมูลเอกสารใบสั่งซื้อทั้งหมดในระบบ
         /// </remarks>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currentPage">Query current page document purchase orders. &lt;br&gt;Example Pattern: &lt;ex&gt;/purchases-orders?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/purchases-orders?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query document purchase orders list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
+        /// <param name="sortBy"> (optional)</param>
+        /// <param name="filter"> (optional)</param>
         /// <returns>InlineDocumentResponse</returns>
-        InlineDocumentResponse PurchasesOrdersGet (string authorization);
+        InlineDocumentResponse PurchasesOrdersGet (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string));
 
         /// <summary>
         /// Get list all purchase order documents.
@@ -65,9 +69,13 @@ namespace Flowaccount.OpenAPITools.Api
         /// เรียกดูข้อมูลเอกสารใบสั่งซื้อทั้งหมดในระบบ
         /// </remarks>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currentPage">Query current page document purchase orders. &lt;br&gt;Example Pattern: &lt;ex&gt;/purchases-orders?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/purchases-orders?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query document purchase orders list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
+        /// <param name="sortBy"> (optional)</param>
+        /// <param name="filter"> (optional)</param>
         /// <returns>ApiResponse of InlineDocumentResponse</returns>
-        ApiResponse<InlineDocumentResponse> PurchasesOrdersGetWithHttpInfo (string authorization);
+        ApiResponse<InlineDocumentResponse> PurchasesOrdersGetWithHttpInfo (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string));
         /// <summary>
         /// Add Attachment to purchase order document.
         /// </summary>
@@ -265,9 +273,13 @@ namespace Flowaccount.OpenAPITools.Api
         /// เรียกดูข้อมูลเอกสารใบสั่งซื้อทั้งหมดในระบบ
         /// </remarks>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currentPage">Query current page document purchase orders. &lt;br&gt;Example Pattern: &lt;ex&gt;/purchases-orders?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/purchases-orders?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query document purchase orders list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
+        /// <param name="sortBy"> (optional)</param>
+        /// <param name="filter"> (optional)</param>
         /// <returns>Task of InlineDocumentResponse</returns>
-        System.Threading.Tasks.Task<InlineDocumentResponse> PurchasesOrdersGetAsync (string authorization);
+        System.Threading.Tasks.Task<InlineDocumentResponse> PurchasesOrdersGetAsync (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string));
 
         /// <summary>
         /// Get list all purchase order documents.
@@ -276,9 +288,13 @@ namespace Flowaccount.OpenAPITools.Api
         /// เรียกดูข้อมูลเอกสารใบสั่งซื้อทั้งหมดในระบบ
         /// </remarks>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currentPage">Query current page document purchase orders. &lt;br&gt;Example Pattern: &lt;ex&gt;/purchases-orders?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/purchases-orders?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query document purchase orders list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
+        /// <param name="sortBy"> (optional)</param>
+        /// <param name="filter"> (optional)</param>
         /// <returns>Task of ApiResponse (InlineDocumentResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineDocumentResponse>> PurchasesOrdersGetAsyncWithHttpInfo (string authorization);
+        System.Threading.Tasks.Task<ApiResponse<InlineDocumentResponse>> PurchasesOrdersGetAsyncWithHttpInfo (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string));
         /// <summary>
         /// Add Attachment to purchase order document.
         /// </summary>
@@ -720,11 +736,15 @@ namespace Flowaccount.OpenAPITools.Api
         /// Get list all purchase order documents. เรียกดูข้อมูลเอกสารใบสั่งซื้อทั้งหมดในระบบ
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currentPage">Query current page document purchase orders. &lt;br&gt;Example Pattern: &lt;ex&gt;/purchases-orders?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/purchases-orders?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query document purchase orders list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
+        /// <param name="sortBy"> (optional)</param>
+        /// <param name="filter"> (optional)</param>
         /// <returns>InlineDocumentResponse</returns>
-        public InlineDocumentResponse PurchasesOrdersGet (string authorization)
+        public InlineDocumentResponse PurchasesOrdersGet (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string))
         {
-             ApiResponse<InlineDocumentResponse> localVarResponse = PurchasesOrdersGetWithHttpInfo(authorization);
+             ApiResponse<InlineDocumentResponse> localVarResponse = PurchasesOrdersGetWithHttpInfo(currentPage, pageSize, authorization, sortBy, filter);
              return localVarResponse.Data;
         }
 
@@ -732,10 +752,20 @@ namespace Flowaccount.OpenAPITools.Api
         /// Get list all purchase order documents. เรียกดูข้อมูลเอกสารใบสั่งซื้อทั้งหมดในระบบ
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currentPage">Query current page document purchase orders. &lt;br&gt;Example Pattern: &lt;ex&gt;/purchases-orders?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/purchases-orders?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query document purchase orders list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
+        /// <param name="sortBy"> (optional)</param>
+        /// <param name="filter"> (optional)</param>
         /// <returns>ApiResponse of InlineDocumentResponse</returns>
-        public ApiResponse<InlineDocumentResponse> PurchasesOrdersGetWithHttpInfo (string authorization)
+        public ApiResponse<InlineDocumentResponse> PurchasesOrdersGetWithHttpInfo (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string))
         {
+            // verify the required parameter 'currentPage' is set
+            if (currentPage == null)
+                throw new ApiException(400, "Missing required parameter 'currentPage' when calling PurchaseOrderApi->PurchasesOrdersGet");
+            // verify the required parameter 'pageSize' is set
+            if (pageSize == null)
+                throw new ApiException(400, "Missing required parameter 'pageSize' when calling PurchaseOrderApi->PurchasesOrdersGet");
             // verify the required parameter 'authorization' is set
             if (authorization == null)
                 throw new ApiException(400, "Missing required parameter 'authorization' when calling PurchaseOrderApi->PurchasesOrdersGet");
@@ -761,6 +791,10 @@ namespace Flowaccount.OpenAPITools.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (currentPage != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "currentPage", currentPage)); // query parameter
+            if (pageSize != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "pageSize", pageSize)); // query parameter
+            if (sortBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sortBy", sortBy)); // query parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
             if (authorization != null) localVarHeaderParams.Add("Authorization", this.Configuration.ApiClient.ParameterToString(authorization)); // header parameter
 
 
@@ -786,11 +820,15 @@ namespace Flowaccount.OpenAPITools.Api
         /// Get list all purchase order documents. เรียกดูข้อมูลเอกสารใบสั่งซื้อทั้งหมดในระบบ
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currentPage">Query current page document purchase orders. &lt;br&gt;Example Pattern: &lt;ex&gt;/purchases-orders?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/purchases-orders?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query document purchase orders list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
+        /// <param name="sortBy"> (optional)</param>
+        /// <param name="filter"> (optional)</param>
         /// <returns>Task of InlineDocumentResponse</returns>
-        public async System.Threading.Tasks.Task<InlineDocumentResponse> PurchasesOrdersGetAsync (string authorization)
+        public async System.Threading.Tasks.Task<InlineDocumentResponse> PurchasesOrdersGetAsync (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string))
         {
-             ApiResponse<InlineDocumentResponse> localVarResponse = await PurchasesOrdersGetAsyncWithHttpInfo(authorization);
+             ApiResponse<InlineDocumentResponse> localVarResponse = await PurchasesOrdersGetAsyncWithHttpInfo(currentPage, pageSize, authorization, sortBy, filter);
              return localVarResponse.Data;
 
         }
@@ -799,10 +837,20 @@ namespace Flowaccount.OpenAPITools.Api
         /// Get list all purchase order documents. เรียกดูข้อมูลเอกสารใบสั่งซื้อทั้งหมดในระบบ
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currentPage">Query current page document purchase orders. &lt;br&gt;Example Pattern: &lt;ex&gt;/purchases-orders?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/purchases-orders?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query document purchase orders list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases-orders?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
+        /// <param name="sortBy"> (optional)</param>
+        /// <param name="filter"> (optional)</param>
         /// <returns>Task of ApiResponse (InlineDocumentResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineDocumentResponse>> PurchasesOrdersGetAsyncWithHttpInfo (string authorization)
+        public async System.Threading.Tasks.Task<ApiResponse<InlineDocumentResponse>> PurchasesOrdersGetAsyncWithHttpInfo (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string))
         {
+            // verify the required parameter 'currentPage' is set
+            if (currentPage == null)
+                throw new ApiException(400, "Missing required parameter 'currentPage' when calling PurchaseOrderApi->PurchasesOrdersGet");
+            // verify the required parameter 'pageSize' is set
+            if (pageSize == null)
+                throw new ApiException(400, "Missing required parameter 'pageSize' when calling PurchaseOrderApi->PurchasesOrdersGet");
             // verify the required parameter 'authorization' is set
             if (authorization == null)
                 throw new ApiException(400, "Missing required parameter 'authorization' when calling PurchaseOrderApi->PurchasesOrdersGet");
@@ -828,6 +876,10 @@ namespace Flowaccount.OpenAPITools.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (currentPage != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "currentPage", currentPage)); // query parameter
+            if (pageSize != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "pageSize", pageSize)); // query parameter
+            if (sortBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sortBy", sortBy)); // query parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
             if (authorization != null) localVarHeaderParams.Add("Authorization", this.Configuration.ApiClient.ParameterToString(authorization)); // header parameter
 
 

@@ -12,7 +12,7 @@ Contact: developer@flowaccount.com
     
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{06DB8555-922D-421F-B341-EF7B4B147DCD}</ProjectGuid>
+    <ProjectGuid>{1CE11C0F-D2EC-4F63-A2B9-F18AD79114FB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Flowaccount.OpenAPITools</RootNamespace>

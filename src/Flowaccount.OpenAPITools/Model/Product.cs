@@ -39,7 +39,7 @@ namespace Flowaccount.OpenAPITools.Model
         /// Initializes a new instance of the <see cref="Product" /> class.
         /// </summary>
         /// <param name="type">ประเภทสินค้า: 1 &#x3D; บริการ / 3 &#x3D; ไม่นับสต๊อก / 5 &#x3D; นับสต๊อก (required) (default to 1).</param>
-        /// <param name="code">รหัสสินค้า &lt;br&gt; &lt;ex&gt;Example: P001&lt;/ex&gt;.</param>
+        /// <param name="code">รหัสสินค้า / SKU &lt;br&gt; &lt;ex&gt;Example: P001&lt;/ex&gt;.</param>
         /// <param name="name">ชื่อสินค้า &lt;br&gt; &lt;ex&gt;Example: Product&lt;/ex&gt; (required).</param>
         /// <param name="sellDescription">รายละเอียดสินค้า ฝั่งขาย.</param>
         /// <param name="sellPrice">ราคาขายสินค้า.</param>
@@ -122,9 +122,9 @@ namespace Flowaccount.OpenAPITools.Model
         public long Type { get; set; }
 
         /// <summary>
-        /// รหัสสินค้า &lt;br&gt; &lt;ex&gt;Example: P001&lt;/ex&gt;
+        /// รหัสสินค้า / SKU &lt;br&gt; &lt;ex&gt;Example: P001&lt;/ex&gt;
         /// </summary>
-        /// <value>รหัสสินค้า &lt;br&gt; &lt;ex&gt;Example: P001&lt;/ex&gt;</value>
+        /// <value>รหัสสินค้า / SKU &lt;br&gt; &lt;ex&gt;Example: P001&lt;/ex&gt;</value>
         [DataMember(Name="code", EmitDefaultValue=true)]
         public string Code { get; set; }
 

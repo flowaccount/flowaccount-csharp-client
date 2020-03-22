@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## ProductsGet
 
-> ProductResponse ProductsGet (string authorization)
+> ProductResponse ProductsGet (int currentPage, int pageSize, string authorization)
 
 Get list all products.
 
@@ -35,12 +35,14 @@ namespace Example
         {
             Configuration.Default.BasePath = "https://openapi.flowaccount.com/v1";
             var apiInstance = new ProductsApi(Configuration.Default);
+            var currentPage = 56;  // int | Query current page products item. <br>Example Pattern: <ex>/products?currentPage=1 </ex><ex>/products?currentPage=1&pageSize=20</ex>
+            var pageSize = 56;  // int | Query products list amount per page. <br>Example Pattern: <ex> /products?pageSize=20 </ex>
             var authorization = authorization_example;  // string |  (default to "Bearer accessToken")
 
             try
             {
                 // Get list all products.
-                ProductResponse result = apiInstance.ProductsGet(authorization);
+                ProductResponse result = apiInstance.ProductsGet(currentPage, pageSize, authorization);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -59,6 +61,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **currentPage** | **int**| Query current page products item. &lt;br&gt;Example Pattern: &lt;ex&gt;/products?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/products?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt; | 
+ **pageSize** | **int**| Query products list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /products?pageSize&#x3D;20 &lt;/ex&gt; | 
  **authorization** | **string**|  | [default to &quot;Bearer accessToken&quot;]
 
 ### Return type

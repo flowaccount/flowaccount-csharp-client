@@ -97,7 +97,7 @@ No authorization required
 
 ## QuotationsGet
 
-> InlineDocumentResponse QuotationsGet (string authorization)
+> InlineDocumentResponse QuotationsGet (int currentPage, int pageSize, string authorization, string sortBy = null, string filter = null)
 
 Get list all quotations documents.
 
@@ -120,12 +120,16 @@ namespace Example
         {
             Configuration.Default.BasePath = "https://openapi.flowaccount.com/v1";
             var apiInstance = new QuotationsApi(Configuration.Default);
+            var currentPage = 56;  // int | Query current page document quotations. <br>Example Pattern: <ex>/quotations?currentPage=1 </ex><ex>/quotations?currentPage=1&pageSize=20</ex>
+            var pageSize = 56;  // int | Query document quotations list amount per page. <br>Example Pattern: <ex> /quotations?pageSize=20 </ex>
             var authorization = authorization_example;  // string |  (default to "Bearer accessToken")
+            var sortBy = sortBy_example;  // string |  (optional) 
+            var filter = filter_example;  // string |  (optional) 
 
             try
             {
                 // Get list all quotations documents.
-                InlineDocumentResponse result = apiInstance.QuotationsGet(authorization);
+                InlineDocumentResponse result = apiInstance.QuotationsGet(currentPage, pageSize, authorization, sortBy, filter);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -144,7 +148,11 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **currentPage** | **int**| Query current page document quotations. &lt;br&gt;Example Pattern: &lt;ex&gt;/quotations?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/quotations?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt; | 
+ **pageSize** | **int**| Query document quotations list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /quotations?pageSize&#x3D;20 &lt;/ex&gt; | 
  **authorization** | **string**|  | [default to &quot;Bearer accessToken&quot;]
+ **sortBy** | **string**|  | [optional] 
+ **filter** | **string**|  | [optional] 
 
 ### Return type
 

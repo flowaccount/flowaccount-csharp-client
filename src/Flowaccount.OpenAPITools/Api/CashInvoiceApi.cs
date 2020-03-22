@@ -54,13 +54,13 @@ namespace Flowaccount.OpenAPITools.Api
         /// เรียกดูข้อมูลเอกสารใบกำกับภาษี/ใบเสร็จรับเงิน (เงินสด) ทั้งหมดในระบบ
         /// </remarks>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currentPage"></param>
-        /// <param name="pageSize"></param>
+        /// <param name="currentPage">Query current page document cash invoices. &lt;br&gt;Example Pattern: &lt;ex&gt;/cash-invoices?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/cash-invoices?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query document cash invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /cash-invoices?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
         /// <param name="sortBy"> (optional)</param>
         /// <param name="filter"> (optional)</param>
         /// <returns>InlineDocumentResponse</returns>
-        InlineDocumentResponse CashInvoicesGet (string currentPage, string pageSize, string authorization, string sortBy = default(string), string filter = default(string));
+        InlineDocumentResponse CashInvoicesGet (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string));
 
         /// <summary>
         /// Get list all cash invoices documents
@@ -69,13 +69,13 @@ namespace Flowaccount.OpenAPITools.Api
         /// เรียกดูข้อมูลเอกสารใบกำกับภาษี/ใบเสร็จรับเงิน (เงินสด) ทั้งหมดในระบบ
         /// </remarks>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currentPage"></param>
-        /// <param name="pageSize"></param>
+        /// <param name="currentPage">Query current page document cash invoices. &lt;br&gt;Example Pattern: &lt;ex&gt;/cash-invoices?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/cash-invoices?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query document cash invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /cash-invoices?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
         /// <param name="sortBy"> (optional)</param>
         /// <param name="filter"> (optional)</param>
         /// <returns>ApiResponse of InlineDocumentResponse</returns>
-        ApiResponse<InlineDocumentResponse> CashInvoicesGetWithHttpInfo (string currentPage, string pageSize, string authorization, string sortBy = default(string), string filter = default(string));
+        ApiResponse<InlineDocumentResponse> CashInvoicesGetWithHttpInfo (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string));
         /// <summary>
         /// Add Attachment to cash invoices document.
         /// </summary>
@@ -298,13 +298,13 @@ namespace Flowaccount.OpenAPITools.Api
         /// เรียกดูข้อมูลเอกสารใบกำกับภาษี/ใบเสร็จรับเงิน (เงินสด) ทั้งหมดในระบบ
         /// </remarks>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currentPage"></param>
-        /// <param name="pageSize"></param>
+        /// <param name="currentPage">Query current page document cash invoices. &lt;br&gt;Example Pattern: &lt;ex&gt;/cash-invoices?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/cash-invoices?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query document cash invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /cash-invoices?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
         /// <param name="sortBy"> (optional)</param>
         /// <param name="filter"> (optional)</param>
         /// <returns>Task of InlineDocumentResponse</returns>
-        System.Threading.Tasks.Task<InlineDocumentResponse> CashInvoicesGetAsync (string currentPage, string pageSize, string authorization, string sortBy = default(string), string filter = default(string));
+        System.Threading.Tasks.Task<InlineDocumentResponse> CashInvoicesGetAsync (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string));
 
         /// <summary>
         /// Get list all cash invoices documents
@@ -313,13 +313,13 @@ namespace Flowaccount.OpenAPITools.Api
         /// เรียกดูข้อมูลเอกสารใบกำกับภาษี/ใบเสร็จรับเงิน (เงินสด) ทั้งหมดในระบบ
         /// </remarks>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currentPage"></param>
-        /// <param name="pageSize"></param>
+        /// <param name="currentPage">Query current page document cash invoices. &lt;br&gt;Example Pattern: &lt;ex&gt;/cash-invoices?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/cash-invoices?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query document cash invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /cash-invoices?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
         /// <param name="sortBy"> (optional)</param>
         /// <param name="filter"> (optional)</param>
         /// <returns>Task of ApiResponse (InlineDocumentResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineDocumentResponse>> CashInvoicesGetAsyncWithHttpInfo (string currentPage, string pageSize, string authorization, string sortBy = default(string), string filter = default(string));
+        System.Threading.Tasks.Task<ApiResponse<InlineDocumentResponse>> CashInvoicesGetAsyncWithHttpInfo (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string));
         /// <summary>
         /// Add Attachment to cash invoices document.
         /// </summary>
@@ -786,13 +786,13 @@ namespace Flowaccount.OpenAPITools.Api
         /// Get list all cash invoices documents เรียกดูข้อมูลเอกสารใบกำกับภาษี/ใบเสร็จรับเงิน (เงินสด) ทั้งหมดในระบบ
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currentPage"></param>
-        /// <param name="pageSize"></param>
+        /// <param name="currentPage">Query current page document cash invoices. &lt;br&gt;Example Pattern: &lt;ex&gt;/cash-invoices?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/cash-invoices?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query document cash invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /cash-invoices?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
         /// <param name="sortBy"> (optional)</param>
         /// <param name="filter"> (optional)</param>
         /// <returns>InlineDocumentResponse</returns>
-        public InlineDocumentResponse CashInvoicesGet (string currentPage, string pageSize, string authorization, string sortBy = default(string), string filter = default(string))
+        public InlineDocumentResponse CashInvoicesGet (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string))
         {
              ApiResponse<InlineDocumentResponse> localVarResponse = CashInvoicesGetWithHttpInfo(currentPage, pageSize, authorization, sortBy, filter);
              return localVarResponse.Data;
@@ -802,13 +802,13 @@ namespace Flowaccount.OpenAPITools.Api
         /// Get list all cash invoices documents เรียกดูข้อมูลเอกสารใบกำกับภาษี/ใบเสร็จรับเงิน (เงินสด) ทั้งหมดในระบบ
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currentPage"></param>
-        /// <param name="pageSize"></param>
+        /// <param name="currentPage">Query current page document cash invoices. &lt;br&gt;Example Pattern: &lt;ex&gt;/cash-invoices?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/cash-invoices?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query document cash invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /cash-invoices?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
         /// <param name="sortBy"> (optional)</param>
         /// <param name="filter"> (optional)</param>
         /// <returns>ApiResponse of InlineDocumentResponse</returns>
-        public ApiResponse<InlineDocumentResponse> CashInvoicesGetWithHttpInfo (string currentPage, string pageSize, string authorization, string sortBy = default(string), string filter = default(string))
+        public ApiResponse<InlineDocumentResponse> CashInvoicesGetWithHttpInfo (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string))
         {
             // verify the required parameter 'currentPage' is set
             if (currentPage == null)
@@ -870,13 +870,13 @@ namespace Flowaccount.OpenAPITools.Api
         /// Get list all cash invoices documents เรียกดูข้อมูลเอกสารใบกำกับภาษี/ใบเสร็จรับเงิน (เงินสด) ทั้งหมดในระบบ
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currentPage"></param>
-        /// <param name="pageSize"></param>
+        /// <param name="currentPage">Query current page document cash invoices. &lt;br&gt;Example Pattern: &lt;ex&gt;/cash-invoices?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/cash-invoices?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query document cash invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /cash-invoices?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
         /// <param name="sortBy"> (optional)</param>
         /// <param name="filter"> (optional)</param>
         /// <returns>Task of InlineDocumentResponse</returns>
-        public async System.Threading.Tasks.Task<InlineDocumentResponse> CashInvoicesGetAsync (string currentPage, string pageSize, string authorization, string sortBy = default(string), string filter = default(string))
+        public async System.Threading.Tasks.Task<InlineDocumentResponse> CashInvoicesGetAsync (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string))
         {
              ApiResponse<InlineDocumentResponse> localVarResponse = await CashInvoicesGetAsyncWithHttpInfo(currentPage, pageSize, authorization, sortBy, filter);
              return localVarResponse.Data;
@@ -887,13 +887,13 @@ namespace Flowaccount.OpenAPITools.Api
         /// Get list all cash invoices documents เรียกดูข้อมูลเอกสารใบกำกับภาษี/ใบเสร็จรับเงิน (เงินสด) ทั้งหมดในระบบ
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currentPage"></param>
-        /// <param name="pageSize"></param>
+        /// <param name="currentPage">Query current page document cash invoices. &lt;br&gt;Example Pattern: &lt;ex&gt;/cash-invoices?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/cash-invoices?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query document cash invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /cash-invoices?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
         /// <param name="sortBy"> (optional)</param>
         /// <param name="filter"> (optional)</param>
         /// <returns>Task of ApiResponse (InlineDocumentResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineDocumentResponse>> CashInvoicesGetAsyncWithHttpInfo (string currentPage, string pageSize, string authorization, string sortBy = default(string), string filter = default(string))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineDocumentResponse>> CashInvoicesGetAsyncWithHttpInfo (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string))
         {
             // verify the required parameter 'currentPage' is set
             if (currentPage == null)

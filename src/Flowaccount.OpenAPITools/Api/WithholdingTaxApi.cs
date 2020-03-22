@@ -54,9 +54,13 @@ namespace Flowaccount.OpenAPITools.Api
         /// เรียกดูข้อมูลเอกสารใบหัก ณ ที่จ่ายทั้งหมดในระบบ
         /// </remarks>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currentPage">Query current page document withholding tax. &lt;br&gt;Example Pattern: &lt;ex&gt;/withholding-taxes?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/withholding-taxes?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query document withholding tax list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /withholding-taxes?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
+        /// <param name="sortBy"> (optional)</param>
+        /// <param name="filter"> (optional)</param>
         /// <returns>WithholidingTaxDocumentResponse</returns>
-        WithholidingTaxDocumentResponse WithholdingTaxesGet (string authorization);
+        WithholidingTaxDocumentResponse WithholdingTaxesGet (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string));
 
         /// <summary>
         /// Get list all withholding tax documents.
@@ -65,9 +69,13 @@ namespace Flowaccount.OpenAPITools.Api
         /// เรียกดูข้อมูลเอกสารใบหัก ณ ที่จ่ายทั้งหมดในระบบ
         /// </remarks>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currentPage">Query current page document withholding tax. &lt;br&gt;Example Pattern: &lt;ex&gt;/withholding-taxes?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/withholding-taxes?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query document withholding tax list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /withholding-taxes?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
+        /// <param name="sortBy"> (optional)</param>
+        /// <param name="filter"> (optional)</param>
         /// <returns>ApiResponse of WithholidingTaxDocumentResponse</returns>
-        ApiResponse<WithholidingTaxDocumentResponse> WithholdingTaxesGetWithHttpInfo (string authorization);
+        ApiResponse<WithholidingTaxDocumentResponse> WithholdingTaxesGetWithHttpInfo (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string));
         /// <summary>
         /// Add Attachment to expenses.
         /// </summary>
@@ -242,9 +250,13 @@ namespace Flowaccount.OpenAPITools.Api
         /// เรียกดูข้อมูลเอกสารใบหัก ณ ที่จ่ายทั้งหมดในระบบ
         /// </remarks>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currentPage">Query current page document withholding tax. &lt;br&gt;Example Pattern: &lt;ex&gt;/withholding-taxes?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/withholding-taxes?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query document withholding tax list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /withholding-taxes?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
+        /// <param name="sortBy"> (optional)</param>
+        /// <param name="filter"> (optional)</param>
         /// <returns>Task of WithholidingTaxDocumentResponse</returns>
-        System.Threading.Tasks.Task<WithholidingTaxDocumentResponse> WithholdingTaxesGetAsync (string authorization);
+        System.Threading.Tasks.Task<WithholidingTaxDocumentResponse> WithholdingTaxesGetAsync (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string));
 
         /// <summary>
         /// Get list all withholding tax documents.
@@ -253,9 +265,13 @@ namespace Flowaccount.OpenAPITools.Api
         /// เรียกดูข้อมูลเอกสารใบหัก ณ ที่จ่ายทั้งหมดในระบบ
         /// </remarks>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currentPage">Query current page document withholding tax. &lt;br&gt;Example Pattern: &lt;ex&gt;/withholding-taxes?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/withholding-taxes?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query document withholding tax list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /withholding-taxes?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
+        /// <param name="sortBy"> (optional)</param>
+        /// <param name="filter"> (optional)</param>
         /// <returns>Task of ApiResponse (WithholidingTaxDocumentResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<WithholidingTaxDocumentResponse>> WithholdingTaxesGetAsyncWithHttpInfo (string authorization);
+        System.Threading.Tasks.Task<ApiResponse<WithholidingTaxDocumentResponse>> WithholdingTaxesGetAsyncWithHttpInfo (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string));
         /// <summary>
         /// Add Attachment to expenses.
         /// </summary>
@@ -674,11 +690,15 @@ namespace Flowaccount.OpenAPITools.Api
         /// Get list all withholding tax documents. เรียกดูข้อมูลเอกสารใบหัก ณ ที่จ่ายทั้งหมดในระบบ
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currentPage">Query current page document withholding tax. &lt;br&gt;Example Pattern: &lt;ex&gt;/withholding-taxes?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/withholding-taxes?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query document withholding tax list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /withholding-taxes?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
+        /// <param name="sortBy"> (optional)</param>
+        /// <param name="filter"> (optional)</param>
         /// <returns>WithholidingTaxDocumentResponse</returns>
-        public WithholidingTaxDocumentResponse WithholdingTaxesGet (string authorization)
+        public WithholidingTaxDocumentResponse WithholdingTaxesGet (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string))
         {
-             ApiResponse<WithholidingTaxDocumentResponse> localVarResponse = WithholdingTaxesGetWithHttpInfo(authorization);
+             ApiResponse<WithholidingTaxDocumentResponse> localVarResponse = WithholdingTaxesGetWithHttpInfo(currentPage, pageSize, authorization, sortBy, filter);
              return localVarResponse.Data;
         }
 
@@ -686,10 +706,20 @@ namespace Flowaccount.OpenAPITools.Api
         /// Get list all withholding tax documents. เรียกดูข้อมูลเอกสารใบหัก ณ ที่จ่ายทั้งหมดในระบบ
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currentPage">Query current page document withholding tax. &lt;br&gt;Example Pattern: &lt;ex&gt;/withholding-taxes?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/withholding-taxes?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query document withholding tax list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /withholding-taxes?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
+        /// <param name="sortBy"> (optional)</param>
+        /// <param name="filter"> (optional)</param>
         /// <returns>ApiResponse of WithholidingTaxDocumentResponse</returns>
-        public ApiResponse<WithholidingTaxDocumentResponse> WithholdingTaxesGetWithHttpInfo (string authorization)
+        public ApiResponse<WithholidingTaxDocumentResponse> WithholdingTaxesGetWithHttpInfo (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string))
         {
+            // verify the required parameter 'currentPage' is set
+            if (currentPage == null)
+                throw new ApiException(400, "Missing required parameter 'currentPage' when calling WithholdingTaxApi->WithholdingTaxesGet");
+            // verify the required parameter 'pageSize' is set
+            if (pageSize == null)
+                throw new ApiException(400, "Missing required parameter 'pageSize' when calling WithholdingTaxApi->WithholdingTaxesGet");
             // verify the required parameter 'authorization' is set
             if (authorization == null)
                 throw new ApiException(400, "Missing required parameter 'authorization' when calling WithholdingTaxApi->WithholdingTaxesGet");
@@ -715,6 +745,10 @@ namespace Flowaccount.OpenAPITools.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (currentPage != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "currentPage", currentPage)); // query parameter
+            if (pageSize != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "pageSize", pageSize)); // query parameter
+            if (sortBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sortBy", sortBy)); // query parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
             if (authorization != null) localVarHeaderParams.Add("Authorization", this.Configuration.ApiClient.ParameterToString(authorization)); // header parameter
 
 
@@ -740,11 +774,15 @@ namespace Flowaccount.OpenAPITools.Api
         /// Get list all withholding tax documents. เรียกดูข้อมูลเอกสารใบหัก ณ ที่จ่ายทั้งหมดในระบบ
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currentPage">Query current page document withholding tax. &lt;br&gt;Example Pattern: &lt;ex&gt;/withholding-taxes?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/withholding-taxes?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query document withholding tax list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /withholding-taxes?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
+        /// <param name="sortBy"> (optional)</param>
+        /// <param name="filter"> (optional)</param>
         /// <returns>Task of WithholidingTaxDocumentResponse</returns>
-        public async System.Threading.Tasks.Task<WithholidingTaxDocumentResponse> WithholdingTaxesGetAsync (string authorization)
+        public async System.Threading.Tasks.Task<WithholidingTaxDocumentResponse> WithholdingTaxesGetAsync (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string))
         {
-             ApiResponse<WithholidingTaxDocumentResponse> localVarResponse = await WithholdingTaxesGetAsyncWithHttpInfo(authorization);
+             ApiResponse<WithholidingTaxDocumentResponse> localVarResponse = await WithholdingTaxesGetAsyncWithHttpInfo(currentPage, pageSize, authorization, sortBy, filter);
              return localVarResponse.Data;
 
         }
@@ -753,10 +791,20 @@ namespace Flowaccount.OpenAPITools.Api
         /// Get list all withholding tax documents. เรียกดูข้อมูลเอกสารใบหัก ณ ที่จ่ายทั้งหมดในระบบ
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currentPage">Query current page document withholding tax. &lt;br&gt;Example Pattern: &lt;ex&gt;/withholding-taxes?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/withholding-taxes?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query document withholding tax list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /withholding-taxes?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
+        /// <param name="sortBy"> (optional)</param>
+        /// <param name="filter"> (optional)</param>
         /// <returns>Task of ApiResponse (WithholidingTaxDocumentResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<WithholidingTaxDocumentResponse>> WithholdingTaxesGetAsyncWithHttpInfo (string authorization)
+        public async System.Threading.Tasks.Task<ApiResponse<WithholidingTaxDocumentResponse>> WithholdingTaxesGetAsyncWithHttpInfo (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string))
         {
+            // verify the required parameter 'currentPage' is set
+            if (currentPage == null)
+                throw new ApiException(400, "Missing required parameter 'currentPage' when calling WithholdingTaxApi->WithholdingTaxesGet");
+            // verify the required parameter 'pageSize' is set
+            if (pageSize == null)
+                throw new ApiException(400, "Missing required parameter 'pageSize' when calling WithholdingTaxApi->WithholdingTaxesGet");
             // verify the required parameter 'authorization' is set
             if (authorization == null)
                 throw new ApiException(400, "Missing required parameter 'authorization' when calling WithholdingTaxApi->WithholdingTaxesGet");
@@ -782,6 +830,10 @@ namespace Flowaccount.OpenAPITools.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (currentPage != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "currentPage", currentPage)); // query parameter
+            if (pageSize != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "pageSize", pageSize)); // query parameter
+            if (sortBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sortBy", sortBy)); // query parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
             if (authorization != null) localVarHeaderParams.Add("Authorization", this.Configuration.ApiClient.ParameterToString(authorization)); // header parameter
 
 

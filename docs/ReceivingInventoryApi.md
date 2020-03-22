@@ -97,7 +97,7 @@ No authorization required
 
 ## PurchasesGet
 
-> InlineDocumentResponse PurchasesGet (string authorization)
+> InlineDocumentResponse PurchasesGet (int currentPage, int pageSize, string authorization, string sortBy = null, string filter = null)
 
 Get list all receiving inventory documents.
 
@@ -120,12 +120,16 @@ namespace Example
         {
             Configuration.Default.BasePath = "https://openapi.flowaccount.com/v1";
             var apiInstance = new ReceivingInventoryApi(Configuration.Default);
+            var currentPage = 56;  // int | Query current page document purchases. <br>Example Pattern: <ex>/purchases?currentPage=1 </ex><ex>/purchases?currentPage=1&pageSize=20</ex>
+            var pageSize = 56;  // int | Query document purchases list amount per page. <br>Example Pattern: <ex> /purchases?pageSize=20 </ex>
             var authorization = authorization_example;  // string |  (default to "Bearer accessToken")
+            var sortBy = sortBy_example;  // string |  (optional) 
+            var filter = filter_example;  // string |  (optional) 
 
             try
             {
                 // Get list all receiving inventory documents.
-                InlineDocumentResponse result = apiInstance.PurchasesGet(authorization);
+                InlineDocumentResponse result = apiInstance.PurchasesGet(currentPage, pageSize, authorization, sortBy, filter);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -144,7 +148,11 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **currentPage** | **int**| Query current page document purchases. &lt;br&gt;Example Pattern: &lt;ex&gt;/purchases?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/purchases?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt; | 
+ **pageSize** | **int**| Query document purchases list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /purchases?pageSize&#x3D;20 &lt;/ex&gt; | 
  **authorization** | **string**|  | [default to &quot;Bearer accessToken&quot;]
+ **sortBy** | **string**|  | [optional] 
+ **filter** | **string**|  | [optional] 
 
 ### Return type
 

@@ -31,9 +31,11 @@ namespace Flowaccount.OpenAPITools.Api
         /// 
         /// </remarks>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currentPage">Query current page contacts. &lt;br&gt;Example Pattern: &lt;ex&gt;/contacts?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/contacts?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query contacts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /contacts?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
         /// <returns>ContactResponse</returns>
-        ContactResponse ContactsGet (string authorization);
+        ContactResponse ContactsGet (int currentPage, int pageSize, string authorization);
 
         /// <summary>
         /// Get list all contacts.
@@ -42,9 +44,11 @@ namespace Flowaccount.OpenAPITools.Api
         /// 
         /// </remarks>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currentPage">Query current page contacts. &lt;br&gt;Example Pattern: &lt;ex&gt;/contacts?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/contacts?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query contacts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /contacts?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
         /// <returns>ApiResponse of ContactResponse</returns>
-        ApiResponse<ContactResponse> ContactsGetWithHttpInfo (string authorization);
+        ApiResponse<ContactResponse> ContactsGetWithHttpInfo (int currentPage, int pageSize, string authorization);
         /// <summary>
         /// Delete contacts.
         /// </summary>
@@ -148,9 +152,11 @@ namespace Flowaccount.OpenAPITools.Api
         /// 
         /// </remarks>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currentPage">Query current page contacts. &lt;br&gt;Example Pattern: &lt;ex&gt;/contacts?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/contacts?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query contacts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /contacts?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
         /// <returns>Task of ContactResponse</returns>
-        System.Threading.Tasks.Task<ContactResponse> ContactsGetAsync (string authorization);
+        System.Threading.Tasks.Task<ContactResponse> ContactsGetAsync (int currentPage, int pageSize, string authorization);
 
         /// <summary>
         /// Get list all contacts.
@@ -159,9 +165,11 @@ namespace Flowaccount.OpenAPITools.Api
         /// 
         /// </remarks>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currentPage">Query current page contacts. &lt;br&gt;Example Pattern: &lt;ex&gt;/contacts?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/contacts?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query contacts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /contacts?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
         /// <returns>Task of ApiResponse (ContactResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ContactResponse>> ContactsGetAsyncWithHttpInfo (string authorization);
+        System.Threading.Tasks.Task<ApiResponse<ContactResponse>> ContactsGetAsyncWithHttpInfo (int currentPage, int pageSize, string authorization);
         /// <summary>
         /// Delete contacts.
         /// </summary>
@@ -371,11 +379,13 @@ namespace Flowaccount.OpenAPITools.Api
         /// Get list all contacts. 
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currentPage">Query current page contacts. &lt;br&gt;Example Pattern: &lt;ex&gt;/contacts?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/contacts?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query contacts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /contacts?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
         /// <returns>ContactResponse</returns>
-        public ContactResponse ContactsGet (string authorization)
+        public ContactResponse ContactsGet (int currentPage, int pageSize, string authorization)
         {
-             ApiResponse<ContactResponse> localVarResponse = ContactsGetWithHttpInfo(authorization);
+             ApiResponse<ContactResponse> localVarResponse = ContactsGetWithHttpInfo(currentPage, pageSize, authorization);
              return localVarResponse.Data;
         }
 
@@ -383,10 +393,18 @@ namespace Flowaccount.OpenAPITools.Api
         /// Get list all contacts. 
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currentPage">Query current page contacts. &lt;br&gt;Example Pattern: &lt;ex&gt;/contacts?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/contacts?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query contacts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /contacts?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
         /// <returns>ApiResponse of ContactResponse</returns>
-        public ApiResponse<ContactResponse> ContactsGetWithHttpInfo (string authorization)
+        public ApiResponse<ContactResponse> ContactsGetWithHttpInfo (int currentPage, int pageSize, string authorization)
         {
+            // verify the required parameter 'currentPage' is set
+            if (currentPage == null)
+                throw new ApiException(400, "Missing required parameter 'currentPage' when calling ContactsApi->ContactsGet");
+            // verify the required parameter 'pageSize' is set
+            if (pageSize == null)
+                throw new ApiException(400, "Missing required parameter 'pageSize' when calling ContactsApi->ContactsGet");
             // verify the required parameter 'authorization' is set
             if (authorization == null)
                 throw new ApiException(400, "Missing required parameter 'authorization' when calling ContactsApi->ContactsGet");
@@ -412,6 +430,8 @@ namespace Flowaccount.OpenAPITools.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (currentPage != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "currentPage", currentPage)); // query parameter
+            if (pageSize != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "pageSize", pageSize)); // query parameter
             if (authorization != null) localVarHeaderParams.Add("Authorization", this.Configuration.ApiClient.ParameterToString(authorization)); // header parameter
 
 
@@ -437,11 +457,13 @@ namespace Flowaccount.OpenAPITools.Api
         /// Get list all contacts. 
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currentPage">Query current page contacts. &lt;br&gt;Example Pattern: &lt;ex&gt;/contacts?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/contacts?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query contacts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /contacts?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
         /// <returns>Task of ContactResponse</returns>
-        public async System.Threading.Tasks.Task<ContactResponse> ContactsGetAsync (string authorization)
+        public async System.Threading.Tasks.Task<ContactResponse> ContactsGetAsync (int currentPage, int pageSize, string authorization)
         {
-             ApiResponse<ContactResponse> localVarResponse = await ContactsGetAsyncWithHttpInfo(authorization);
+             ApiResponse<ContactResponse> localVarResponse = await ContactsGetAsyncWithHttpInfo(currentPage, pageSize, authorization);
              return localVarResponse.Data;
 
         }
@@ -450,10 +472,18 @@ namespace Flowaccount.OpenAPITools.Api
         /// Get list all contacts. 
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currentPage">Query current page contacts. &lt;br&gt;Example Pattern: &lt;ex&gt;/contacts?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/contacts?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query contacts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /contacts?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
         /// <returns>Task of ApiResponse (ContactResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ContactResponse>> ContactsGetAsyncWithHttpInfo (string authorization)
+        public async System.Threading.Tasks.Task<ApiResponse<ContactResponse>> ContactsGetAsyncWithHttpInfo (int currentPage, int pageSize, string authorization)
         {
+            // verify the required parameter 'currentPage' is set
+            if (currentPage == null)
+                throw new ApiException(400, "Missing required parameter 'currentPage' when calling ContactsApi->ContactsGet");
+            // verify the required parameter 'pageSize' is set
+            if (pageSize == null)
+                throw new ApiException(400, "Missing required parameter 'pageSize' when calling ContactsApi->ContactsGet");
             // verify the required parameter 'authorization' is set
             if (authorization == null)
                 throw new ApiException(400, "Missing required parameter 'authorization' when calling ContactsApi->ContactsGet");
@@ -479,6 +509,8 @@ namespace Flowaccount.OpenAPITools.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (currentPage != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "currentPage", currentPage)); // query parameter
+            if (pageSize != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "pageSize", pageSize)); // query parameter
             if (authorization != null) localVarHeaderParams.Add("Authorization", this.Configuration.ApiClient.ParameterToString(authorization)); // header parameter
 
 

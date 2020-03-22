@@ -54,13 +54,13 @@ namespace Flowaccount.OpenAPITools.Api
         /// เรียกดูข้อมูลเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ทั้งหมดในระบบ
         /// </remarks>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currentPage"></param>
-        /// <param name="pageSize"></param>
+        /// <param name="currentPage">Query current page document tax invoices. &lt;br&gt;Example Pattern: &lt;ex&gt;/tax-invoices?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/tax-invoices?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query document tax invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
         /// <param name="sortBy"> (optional)</param>
         /// <param name="filter"> (optional)</param>
         /// <returns>InlineDocumentResponse</returns>
-        InlineDocumentResponse TaxInvoicesGet (string currentPage, string pageSize, string authorization, string sortBy = default(string), string filter = default(string));
+        InlineDocumentResponse TaxInvoicesGet (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string));
 
         /// <summary>
         /// Get list all tax invocie documents.
@@ -69,13 +69,13 @@ namespace Flowaccount.OpenAPITools.Api
         /// เรียกดูข้อมูลเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ทั้งหมดในระบบ
         /// </remarks>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currentPage"></param>
-        /// <param name="pageSize"></param>
+        /// <param name="currentPage">Query current page document tax invoices. &lt;br&gt;Example Pattern: &lt;ex&gt;/tax-invoices?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/tax-invoices?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query document tax invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
         /// <param name="sortBy"> (optional)</param>
         /// <param name="filter"> (optional)</param>
         /// <returns>ApiResponse of InlineDocumentResponse</returns>
-        ApiResponse<InlineDocumentResponse> TaxInvoicesGetWithHttpInfo (string currentPage, string pageSize, string authorization, string sortBy = default(string), string filter = default(string));
+        ApiResponse<InlineDocumentResponse> TaxInvoicesGetWithHttpInfo (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string));
         /// <summary>
         /// Add Attachment to tax Invoices document.
         /// </summary>
@@ -298,13 +298,13 @@ namespace Flowaccount.OpenAPITools.Api
         /// เรียกดูข้อมูลเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ทั้งหมดในระบบ
         /// </remarks>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currentPage"></param>
-        /// <param name="pageSize"></param>
+        /// <param name="currentPage">Query current page document tax invoices. &lt;br&gt;Example Pattern: &lt;ex&gt;/tax-invoices?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/tax-invoices?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query document tax invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
         /// <param name="sortBy"> (optional)</param>
         /// <param name="filter"> (optional)</param>
         /// <returns>Task of InlineDocumentResponse</returns>
-        System.Threading.Tasks.Task<InlineDocumentResponse> TaxInvoicesGetAsync (string currentPage, string pageSize, string authorization, string sortBy = default(string), string filter = default(string));
+        System.Threading.Tasks.Task<InlineDocumentResponse> TaxInvoicesGetAsync (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string));
 
         /// <summary>
         /// Get list all tax invocie documents.
@@ -313,13 +313,13 @@ namespace Flowaccount.OpenAPITools.Api
         /// เรียกดูข้อมูลเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ทั้งหมดในระบบ
         /// </remarks>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currentPage"></param>
-        /// <param name="pageSize"></param>
+        /// <param name="currentPage">Query current page document tax invoices. &lt;br&gt;Example Pattern: &lt;ex&gt;/tax-invoices?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/tax-invoices?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query document tax invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
         /// <param name="sortBy"> (optional)</param>
         /// <param name="filter"> (optional)</param>
         /// <returns>Task of ApiResponse (InlineDocumentResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineDocumentResponse>> TaxInvoicesGetAsyncWithHttpInfo (string currentPage, string pageSize, string authorization, string sortBy = default(string), string filter = default(string));
+        System.Threading.Tasks.Task<ApiResponse<InlineDocumentResponse>> TaxInvoicesGetAsyncWithHttpInfo (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string));
         /// <summary>
         /// Add Attachment to tax Invoices document.
         /// </summary>
@@ -786,13 +786,13 @@ namespace Flowaccount.OpenAPITools.Api
         /// Get list all tax invocie documents. เรียกดูข้อมูลเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ทั้งหมดในระบบ
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currentPage"></param>
-        /// <param name="pageSize"></param>
+        /// <param name="currentPage">Query current page document tax invoices. &lt;br&gt;Example Pattern: &lt;ex&gt;/tax-invoices?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/tax-invoices?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query document tax invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
         /// <param name="sortBy"> (optional)</param>
         /// <param name="filter"> (optional)</param>
         /// <returns>InlineDocumentResponse</returns>
-        public InlineDocumentResponse TaxInvoicesGet (string currentPage, string pageSize, string authorization, string sortBy = default(string), string filter = default(string))
+        public InlineDocumentResponse TaxInvoicesGet (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string))
         {
              ApiResponse<InlineDocumentResponse> localVarResponse = TaxInvoicesGetWithHttpInfo(currentPage, pageSize, authorization, sortBy, filter);
              return localVarResponse.Data;
@@ -802,13 +802,13 @@ namespace Flowaccount.OpenAPITools.Api
         /// Get list all tax invocie documents. เรียกดูข้อมูลเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ทั้งหมดในระบบ
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currentPage"></param>
-        /// <param name="pageSize"></param>
+        /// <param name="currentPage">Query current page document tax invoices. &lt;br&gt;Example Pattern: &lt;ex&gt;/tax-invoices?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/tax-invoices?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query document tax invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
         /// <param name="sortBy"> (optional)</param>
         /// <param name="filter"> (optional)</param>
         /// <returns>ApiResponse of InlineDocumentResponse</returns>
-        public ApiResponse<InlineDocumentResponse> TaxInvoicesGetWithHttpInfo (string currentPage, string pageSize, string authorization, string sortBy = default(string), string filter = default(string))
+        public ApiResponse<InlineDocumentResponse> TaxInvoicesGetWithHttpInfo (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string))
         {
             // verify the required parameter 'currentPage' is set
             if (currentPage == null)
@@ -870,13 +870,13 @@ namespace Flowaccount.OpenAPITools.Api
         /// Get list all tax invocie documents. เรียกดูข้อมูลเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ทั้งหมดในระบบ
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currentPage"></param>
-        /// <param name="pageSize"></param>
+        /// <param name="currentPage">Query current page document tax invoices. &lt;br&gt;Example Pattern: &lt;ex&gt;/tax-invoices?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/tax-invoices?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query document tax invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
         /// <param name="sortBy"> (optional)</param>
         /// <param name="filter"> (optional)</param>
         /// <returns>Task of InlineDocumentResponse</returns>
-        public async System.Threading.Tasks.Task<InlineDocumentResponse> TaxInvoicesGetAsync (string currentPage, string pageSize, string authorization, string sortBy = default(string), string filter = default(string))
+        public async System.Threading.Tasks.Task<InlineDocumentResponse> TaxInvoicesGetAsync (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string))
         {
              ApiResponse<InlineDocumentResponse> localVarResponse = await TaxInvoicesGetAsyncWithHttpInfo(currentPage, pageSize, authorization, sortBy, filter);
              return localVarResponse.Data;
@@ -887,13 +887,13 @@ namespace Flowaccount.OpenAPITools.Api
         /// Get list all tax invocie documents. เรียกดูข้อมูลเอกสารใบกำกับภาษี หรือ ใบกำกับภาษี/ใบเสร็จรับเงิน ทั้งหมดในระบบ
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="currentPage"></param>
-        /// <param name="pageSize"></param>
+        /// <param name="currentPage">Query current page document tax invoices. &lt;br&gt;Example Pattern: &lt;ex&gt;/tax-invoices?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/tax-invoices?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query document tax invoices list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /tax-invoices?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
         /// <param name="sortBy"> (optional)</param>
         /// <param name="filter"> (optional)</param>
         /// <returns>Task of ApiResponse (InlineDocumentResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineDocumentResponse>> TaxInvoicesGetAsyncWithHttpInfo (string currentPage, string pageSize, string authorization, string sortBy = default(string), string filter = default(string))
+        public async System.Threading.Tasks.Task<ApiResponse<InlineDocumentResponse>> TaxInvoicesGetAsyncWithHttpInfo (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string))
         {
             // verify the required parameter 'currentPage' is set
             if (currentPage == null)

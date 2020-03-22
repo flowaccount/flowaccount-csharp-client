@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 ## ContactsGet
 
-> ContactResponse ContactsGet (string authorization)
+> ContactResponse ContactsGet (int currentPage, int pageSize, string authorization)
 
 Get list all contacts.
 
@@ -35,12 +35,14 @@ namespace Example
         {
             Configuration.Default.BasePath = "https://openapi.flowaccount.com/v1";
             var apiInstance = new ContactsApi(Configuration.Default);
+            var currentPage = 56;  // int | Query current page contacts. <br>Example Pattern: <ex>/contacts?currentPage=1 </ex><ex>/contacts?currentPage=1&pageSize=20</ex>
+            var pageSize = 56;  // int | Query contacts list amount per page. <br>Example Pattern: <ex> /contacts?pageSize=20 </ex>
             var authorization = authorization_example;  // string |  (default to "Bearer accessToken")
 
             try
             {
                 // Get list all contacts.
-                ContactResponse result = apiInstance.ContactsGet(authorization);
+                ContactResponse result = apiInstance.ContactsGet(currentPage, pageSize, authorization);
                 Debug.WriteLine(result);
             }
             catch (ApiException e)
@@ -59,6 +61,8 @@ namespace Example
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **currentPage** | **int**| Query current page contacts. &lt;br&gt;Example Pattern: &lt;ex&gt;/contacts?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/contacts?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt; | 
+ **pageSize** | **int**| Query contacts list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /contacts?pageSize&#x3D;20 &lt;/ex&gt; | 
  **authorization** | **string**|  | [default to &quot;Bearer accessToken&quot;]
 
 ### Return type

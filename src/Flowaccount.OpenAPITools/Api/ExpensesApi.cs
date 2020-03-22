@@ -96,9 +96,13 @@ namespace Flowaccount.OpenAPITools.Api
         /// เรียกดูข้อมูลเอกสารค่าใช้จ่ายทั้งหมดในระบบ
         /// </remarks>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currentPage">Query current page document expenses. &lt;br&gt;Example Pattern: &lt;ex&gt;/expenses?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/expenses?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query document expenses list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
+        /// <param name="sortBy"> (optional)</param>
+        /// <param name="filter"> (optional)</param>
         /// <returns>ExpenseInlineDocumentResponse</returns>
-        ExpenseInlineDocumentResponse ExpensesGet (string authorization);
+        ExpenseInlineDocumentResponse ExpensesGet (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string));
 
         /// <summary>
         /// Get list all expenses documents.
@@ -107,9 +111,13 @@ namespace Flowaccount.OpenAPITools.Api
         /// เรียกดูข้อมูลเอกสารค่าใช้จ่ายทั้งหมดในระบบ
         /// </remarks>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currentPage">Query current page document expenses. &lt;br&gt;Example Pattern: &lt;ex&gt;/expenses?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/expenses?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query document expenses list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
+        /// <param name="sortBy"> (optional)</param>
+        /// <param name="filter"> (optional)</param>
         /// <returns>ApiResponse of ExpenseInlineDocumentResponse</returns>
-        ApiResponse<ExpenseInlineDocumentResponse> ExpensesGetWithHttpInfo (string authorization);
+        ApiResponse<ExpenseInlineDocumentResponse> ExpensesGetWithHttpInfo (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string));
         /// <summary>
         /// Add Attachment to expenses.
         /// </summary>
@@ -374,9 +382,13 @@ namespace Flowaccount.OpenAPITools.Api
         /// เรียกดูข้อมูลเอกสารค่าใช้จ่ายทั้งหมดในระบบ
         /// </remarks>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currentPage">Query current page document expenses. &lt;br&gt;Example Pattern: &lt;ex&gt;/expenses?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/expenses?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query document expenses list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
+        /// <param name="sortBy"> (optional)</param>
+        /// <param name="filter"> (optional)</param>
         /// <returns>Task of ExpenseInlineDocumentResponse</returns>
-        System.Threading.Tasks.Task<ExpenseInlineDocumentResponse> ExpensesGetAsync (string authorization);
+        System.Threading.Tasks.Task<ExpenseInlineDocumentResponse> ExpensesGetAsync (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string));
 
         /// <summary>
         /// Get list all expenses documents.
@@ -385,9 +397,13 @@ namespace Flowaccount.OpenAPITools.Api
         /// เรียกดูข้อมูลเอกสารค่าใช้จ่ายทั้งหมดในระบบ
         /// </remarks>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currentPage">Query current page document expenses. &lt;br&gt;Example Pattern: &lt;ex&gt;/expenses?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/expenses?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query document expenses list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
+        /// <param name="sortBy"> (optional)</param>
+        /// <param name="filter"> (optional)</param>
         /// <returns>Task of ApiResponse (ExpenseInlineDocumentResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ExpenseInlineDocumentResponse>> ExpensesGetAsyncWithHttpInfo (string authorization);
+        System.Threading.Tasks.Task<ApiResponse<ExpenseInlineDocumentResponse>> ExpensesGetAsyncWithHttpInfo (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string));
         /// <summary>
         /// Add Attachment to expenses.
         /// </summary>
@@ -1120,11 +1136,15 @@ namespace Flowaccount.OpenAPITools.Api
         /// Get list all expenses documents. เรียกดูข้อมูลเอกสารค่าใช้จ่ายทั้งหมดในระบบ
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currentPage">Query current page document expenses. &lt;br&gt;Example Pattern: &lt;ex&gt;/expenses?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/expenses?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query document expenses list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
+        /// <param name="sortBy"> (optional)</param>
+        /// <param name="filter"> (optional)</param>
         /// <returns>ExpenseInlineDocumentResponse</returns>
-        public ExpenseInlineDocumentResponse ExpensesGet (string authorization)
+        public ExpenseInlineDocumentResponse ExpensesGet (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string))
         {
-             ApiResponse<ExpenseInlineDocumentResponse> localVarResponse = ExpensesGetWithHttpInfo(authorization);
+             ApiResponse<ExpenseInlineDocumentResponse> localVarResponse = ExpensesGetWithHttpInfo(currentPage, pageSize, authorization, sortBy, filter);
              return localVarResponse.Data;
         }
 
@@ -1132,10 +1152,20 @@ namespace Flowaccount.OpenAPITools.Api
         /// Get list all expenses documents. เรียกดูข้อมูลเอกสารค่าใช้จ่ายทั้งหมดในระบบ
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currentPage">Query current page document expenses. &lt;br&gt;Example Pattern: &lt;ex&gt;/expenses?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/expenses?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query document expenses list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
+        /// <param name="sortBy"> (optional)</param>
+        /// <param name="filter"> (optional)</param>
         /// <returns>ApiResponse of ExpenseInlineDocumentResponse</returns>
-        public ApiResponse<ExpenseInlineDocumentResponse> ExpensesGetWithHttpInfo (string authorization)
+        public ApiResponse<ExpenseInlineDocumentResponse> ExpensesGetWithHttpInfo (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string))
         {
+            // verify the required parameter 'currentPage' is set
+            if (currentPage == null)
+                throw new ApiException(400, "Missing required parameter 'currentPage' when calling ExpensesApi->ExpensesGet");
+            // verify the required parameter 'pageSize' is set
+            if (pageSize == null)
+                throw new ApiException(400, "Missing required parameter 'pageSize' when calling ExpensesApi->ExpensesGet");
             // verify the required parameter 'authorization' is set
             if (authorization == null)
                 throw new ApiException(400, "Missing required parameter 'authorization' when calling ExpensesApi->ExpensesGet");
@@ -1161,6 +1191,10 @@ namespace Flowaccount.OpenAPITools.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (currentPage != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "currentPage", currentPage)); // query parameter
+            if (pageSize != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "pageSize", pageSize)); // query parameter
+            if (sortBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sortBy", sortBy)); // query parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
             if (authorization != null) localVarHeaderParams.Add("Authorization", this.Configuration.ApiClient.ParameterToString(authorization)); // header parameter
 
 
@@ -1186,11 +1220,15 @@ namespace Flowaccount.OpenAPITools.Api
         /// Get list all expenses documents. เรียกดูข้อมูลเอกสารค่าใช้จ่ายทั้งหมดในระบบ
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currentPage">Query current page document expenses. &lt;br&gt;Example Pattern: &lt;ex&gt;/expenses?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/expenses?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query document expenses list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
+        /// <param name="sortBy"> (optional)</param>
+        /// <param name="filter"> (optional)</param>
         /// <returns>Task of ExpenseInlineDocumentResponse</returns>
-        public async System.Threading.Tasks.Task<ExpenseInlineDocumentResponse> ExpensesGetAsync (string authorization)
+        public async System.Threading.Tasks.Task<ExpenseInlineDocumentResponse> ExpensesGetAsync (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string))
         {
-             ApiResponse<ExpenseInlineDocumentResponse> localVarResponse = await ExpensesGetAsyncWithHttpInfo(authorization);
+             ApiResponse<ExpenseInlineDocumentResponse> localVarResponse = await ExpensesGetAsyncWithHttpInfo(currentPage, pageSize, authorization, sortBy, filter);
              return localVarResponse.Data;
 
         }
@@ -1199,10 +1237,20 @@ namespace Flowaccount.OpenAPITools.Api
         /// Get list all expenses documents. เรียกดูข้อมูลเอกสารค่าใช้จ่ายทั้งหมดในระบบ
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currentPage">Query current page document expenses. &lt;br&gt;Example Pattern: &lt;ex&gt;/expenses?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/expenses?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query document expenses list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /expenses?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
+        /// <param name="sortBy"> (optional)</param>
+        /// <param name="filter"> (optional)</param>
         /// <returns>Task of ApiResponse (ExpenseInlineDocumentResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ExpenseInlineDocumentResponse>> ExpensesGetAsyncWithHttpInfo (string authorization)
+        public async System.Threading.Tasks.Task<ApiResponse<ExpenseInlineDocumentResponse>> ExpensesGetAsyncWithHttpInfo (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string))
         {
+            // verify the required parameter 'currentPage' is set
+            if (currentPage == null)
+                throw new ApiException(400, "Missing required parameter 'currentPage' when calling ExpensesApi->ExpensesGet");
+            // verify the required parameter 'pageSize' is set
+            if (pageSize == null)
+                throw new ApiException(400, "Missing required parameter 'pageSize' when calling ExpensesApi->ExpensesGet");
             // verify the required parameter 'authorization' is set
             if (authorization == null)
                 throw new ApiException(400, "Missing required parameter 'authorization' when calling ExpensesApi->ExpensesGet");
@@ -1228,6 +1276,10 @@ namespace Flowaccount.OpenAPITools.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (currentPage != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "currentPage", currentPage)); // query parameter
+            if (pageSize != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "pageSize", pageSize)); // query parameter
+            if (sortBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sortBy", sortBy)); // query parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
             if (authorization != null) localVarHeaderParams.Add("Authorization", this.Configuration.ApiClient.ParameterToString(authorization)); // header parameter
 
 

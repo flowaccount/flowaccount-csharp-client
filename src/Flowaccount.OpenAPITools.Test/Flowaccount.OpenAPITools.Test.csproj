@@ -81,7 +81,7 @@ Contact: developer@flowaccount.com
   <Import Project="$(MsBuildToolsPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
       <ProjectReference Include="..\Flowaccount.OpenAPITools\Flowaccount.OpenAPITools.csproj">
-          <Project>{06DB8555-922D-421F-B341-EF7B4B147DCD}</Project>
+          <Project>{1CE11C0F-D2EC-4F63-A2B9-F18AD79114FB}</Project>
           <Name>Flowaccount.OpenAPITools</Name>
       </ProjectReference>
   </ItemGroup>

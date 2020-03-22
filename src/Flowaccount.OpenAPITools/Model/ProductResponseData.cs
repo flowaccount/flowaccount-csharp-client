@@ -48,12 +48,11 @@ namespace Flowaccount.OpenAPITools.Model
         /// <param name="buyVatType">ภาษีซื้อ: &lt;br&gt; 1 &#x3D; ราคาซื้อรวมภาษี &lt;br&gt; 3 &#x3D; ราคาซื้อไม่รวมภาษี &lt;br&gt; 5 &#x3D; ราคาซื้อภาษี 0% &lt;br&gt; 7 &#x3D; ราคาซื้อสินค้าได้รับการยกเว้นภาษี (default to 3).</param>
         /// <param name="inventoryPublishedOn">วันที่ตั้งต้นสินค้า รูปแบบ yyyy-MM-dd &lt;br&gt; &lt;ex&gt;Example: 2020-01-01&lt;/ex&gt; (default to &quot;Wed Jan 01 00:00:00 ICT 2020&quot;).</param>
         /// <param name="inventoryQuantity">จำนวนยอดตั้งต้นสินค้า.</param>
-        /// <param name="inventoryPrice">ราคาซื้อสินค้า.</param>
         /// <param name="averageBuyPrice">ราคาซื้อเฉลี่ยสินค้า.</param>
         /// <param name="averageSellPrice">ราคาขายเฉลี่ยสินค้า.</param>
         /// <param name="remainingStock">จำนวนสินค้าคงเหลือในสต๊อก.</param>
         /// <param name="totalValueInHand">มูลค่าสินค้าคงเหลือในสต๊อก.</param>
-        public ProductResponseData(string id = default(string), long type = 1, string code = default(string), string name = default(string), string sellDescription = default(string), decimal sellPrice = default(decimal), long sellVatType = 3, string unitName = default(string), string categoryName = default(string), string barcode = default(string), string buyDescription = default(string), decimal buyPrice = default(decimal), long buyVatType = 3, DateTime inventoryPublishedOn = "Wed Jan 01 00:00:00 ICT 2020", decimal inventoryQuantity = default(decimal), decimal inventoryPrice = default(decimal), decimal averageBuyPrice = default(decimal), decimal averageSellPrice = default(decimal), decimal remainingStock = default(decimal), decimal totalValueInHand = default(decimal))
+        public ProductResponseData(string id = default(string), long type = 1, string code = default(string), string name = default(string), string sellDescription = default(string), decimal sellPrice = default(decimal), long sellVatType = 3, string unitName = default(string), string categoryName = default(string), string barcode = default(string), string buyDescription = default(string), decimal buyPrice = default(decimal), long buyVatType = 3, DateTime inventoryPublishedOn = "Wed Jan 01 00:00:00 ICT 2020", decimal inventoryQuantity = default(decimal), decimal averageBuyPrice = default(decimal), decimal averageSellPrice = default(decimal), decimal remainingStock = default(decimal), decimal totalValueInHand = default(decimal))
         {
             this.Id = id;
             // use default value if no "type" provided
@@ -102,7 +101,6 @@ namespace Flowaccount.OpenAPITools.Model
                 this.InventoryPublishedOn = inventoryPublishedOn;
             }
             this.InventoryQuantity = inventoryQuantity;
-            this.InventoryPrice = inventoryPrice;
             this.AverageBuyPrice = averageBuyPrice;
             this.AverageSellPrice = averageSellPrice;
             this.RemainingStock = remainingStock;
@@ -216,13 +214,6 @@ namespace Flowaccount.OpenAPITools.Model
         public decimal InventoryQuantity { get; set; }
 
         /// <summary>
-        /// ราคาซื้อสินค้า
-        /// </summary>
-        /// <value>ราคาซื้อสินค้า</value>
-        [DataMember(Name="inventoryPrice", EmitDefaultValue=true)]
-        public decimal InventoryPrice { get; set; }
-
-        /// <summary>
         /// ราคาซื้อเฉลี่ยสินค้า
         /// </summary>
         /// <value>ราคาซื้อเฉลี่ยสินค้า</value>
@@ -273,7 +264,6 @@ namespace Flowaccount.OpenAPITools.Model
             sb.Append("  BuyVatType: ").Append(BuyVatType).Append("\n");
             sb.Append("  InventoryPublishedOn: ").Append(InventoryPublishedOn).Append("\n");
             sb.Append("  InventoryQuantity: ").Append(InventoryQuantity).Append("\n");
-            sb.Append("  InventoryPrice: ").Append(InventoryPrice).Append("\n");
             sb.Append("  AverageBuyPrice: ").Append(AverageBuyPrice).Append("\n");
             sb.Append("  AverageSellPrice: ").Append(AverageSellPrice).Append("\n");
             sb.Append("  RemainingStock: ").Append(RemainingStock).Append("\n");
@@ -388,11 +378,6 @@ namespace Flowaccount.OpenAPITools.Model
                     this.InventoryQuantity.Equals(input.InventoryQuantity))
                 ) && 
                 (
-                    this.InventoryPrice == input.InventoryPrice ||
-                    (this.InventoryPrice != null &&
-                    this.InventoryPrice.Equals(input.InventoryPrice))
-                ) && 
-                (
                     this.AverageBuyPrice == input.AverageBuyPrice ||
                     (this.AverageBuyPrice != null &&
                     this.AverageBuyPrice.Equals(input.AverageBuyPrice))
@@ -453,8 +438,6 @@ namespace Flowaccount.OpenAPITools.Model
                     hashCode = hashCode * 59 + this.InventoryPublishedOn.GetHashCode();
                 if (this.InventoryQuantity != null)
                     hashCode = hashCode * 59 + this.InventoryQuantity.GetHashCode();
-                if (this.InventoryPrice != null)
-                    hashCode = hashCode * 59 + this.InventoryPrice.GetHashCode();
                 if (this.AverageBuyPrice != null)
                     hashCode = hashCode * 59 + this.AverageBuyPrice.GetHashCode();
                 if (this.AverageSellPrice != null)

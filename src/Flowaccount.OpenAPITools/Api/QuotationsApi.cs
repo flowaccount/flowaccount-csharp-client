@@ -54,9 +54,13 @@ namespace Flowaccount.OpenAPITools.Api
         /// เรียกดูข้อมูลเอกสารใบเสนอราคาทั้งหมดในระบบ
         /// </remarks>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currentPage">Query current page document quotations. &lt;br&gt;Example Pattern: &lt;ex&gt;/quotations?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/quotations?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query document quotations list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /quotations?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
+        /// <param name="sortBy"> (optional)</param>
+        /// <param name="filter"> (optional)</param>
         /// <returns>InlineDocumentResponse</returns>
-        InlineDocumentResponse QuotationsGet (string authorization);
+        InlineDocumentResponse QuotationsGet (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string));
 
         /// <summary>
         /// Get list all quotations documents.
@@ -65,9 +69,13 @@ namespace Flowaccount.OpenAPITools.Api
         /// เรียกดูข้อมูลเอกสารใบเสนอราคาทั้งหมดในระบบ
         /// </remarks>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currentPage">Query current page document quotations. &lt;br&gt;Example Pattern: &lt;ex&gt;/quotations?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/quotations?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query document quotations list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /quotations?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
+        /// <param name="sortBy"> (optional)</param>
+        /// <param name="filter"> (optional)</param>
         /// <returns>ApiResponse of InlineDocumentResponse</returns>
-        ApiResponse<InlineDocumentResponse> QuotationsGetWithHttpInfo (string authorization);
+        ApiResponse<InlineDocumentResponse> QuotationsGetWithHttpInfo (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string));
         /// <summary>
         /// Add Attachment to quotations document.
         /// </summary>
@@ -265,9 +273,13 @@ namespace Flowaccount.OpenAPITools.Api
         /// เรียกดูข้อมูลเอกสารใบเสนอราคาทั้งหมดในระบบ
         /// </remarks>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currentPage">Query current page document quotations. &lt;br&gt;Example Pattern: &lt;ex&gt;/quotations?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/quotations?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query document quotations list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /quotations?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
+        /// <param name="sortBy"> (optional)</param>
+        /// <param name="filter"> (optional)</param>
         /// <returns>Task of InlineDocumentResponse</returns>
-        System.Threading.Tasks.Task<InlineDocumentResponse> QuotationsGetAsync (string authorization);
+        System.Threading.Tasks.Task<InlineDocumentResponse> QuotationsGetAsync (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string));
 
         /// <summary>
         /// Get list all quotations documents.
@@ -276,9 +288,13 @@ namespace Flowaccount.OpenAPITools.Api
         /// เรียกดูข้อมูลเอกสารใบเสนอราคาทั้งหมดในระบบ
         /// </remarks>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currentPage">Query current page document quotations. &lt;br&gt;Example Pattern: &lt;ex&gt;/quotations?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/quotations?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query document quotations list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /quotations?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
+        /// <param name="sortBy"> (optional)</param>
+        /// <param name="filter"> (optional)</param>
         /// <returns>Task of ApiResponse (InlineDocumentResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineDocumentResponse>> QuotationsGetAsyncWithHttpInfo (string authorization);
+        System.Threading.Tasks.Task<ApiResponse<InlineDocumentResponse>> QuotationsGetAsyncWithHttpInfo (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string));
         /// <summary>
         /// Add Attachment to quotations document.
         /// </summary>
@@ -720,11 +736,15 @@ namespace Flowaccount.OpenAPITools.Api
         /// Get list all quotations documents. เรียกดูข้อมูลเอกสารใบเสนอราคาทั้งหมดในระบบ
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currentPage">Query current page document quotations. &lt;br&gt;Example Pattern: &lt;ex&gt;/quotations?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/quotations?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query document quotations list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /quotations?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
+        /// <param name="sortBy"> (optional)</param>
+        /// <param name="filter"> (optional)</param>
         /// <returns>InlineDocumentResponse</returns>
-        public InlineDocumentResponse QuotationsGet (string authorization)
+        public InlineDocumentResponse QuotationsGet (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string))
         {
-             ApiResponse<InlineDocumentResponse> localVarResponse = QuotationsGetWithHttpInfo(authorization);
+             ApiResponse<InlineDocumentResponse> localVarResponse = QuotationsGetWithHttpInfo(currentPage, pageSize, authorization, sortBy, filter);
              return localVarResponse.Data;
         }
 
@@ -732,10 +752,20 @@ namespace Flowaccount.OpenAPITools.Api
         /// Get list all quotations documents. เรียกดูข้อมูลเอกสารใบเสนอราคาทั้งหมดในระบบ
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currentPage">Query current page document quotations. &lt;br&gt;Example Pattern: &lt;ex&gt;/quotations?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/quotations?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query document quotations list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /quotations?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
+        /// <param name="sortBy"> (optional)</param>
+        /// <param name="filter"> (optional)</param>
         /// <returns>ApiResponse of InlineDocumentResponse</returns>
-        public ApiResponse<InlineDocumentResponse> QuotationsGetWithHttpInfo (string authorization)
+        public ApiResponse<InlineDocumentResponse> QuotationsGetWithHttpInfo (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string))
         {
+            // verify the required parameter 'currentPage' is set
+            if (currentPage == null)
+                throw new ApiException(400, "Missing required parameter 'currentPage' when calling QuotationsApi->QuotationsGet");
+            // verify the required parameter 'pageSize' is set
+            if (pageSize == null)
+                throw new ApiException(400, "Missing required parameter 'pageSize' when calling QuotationsApi->QuotationsGet");
             // verify the required parameter 'authorization' is set
             if (authorization == null)
                 throw new ApiException(400, "Missing required parameter 'authorization' when calling QuotationsApi->QuotationsGet");
@@ -761,6 +791,10 @@ namespace Flowaccount.OpenAPITools.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (currentPage != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "currentPage", currentPage)); // query parameter
+            if (pageSize != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "pageSize", pageSize)); // query parameter
+            if (sortBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sortBy", sortBy)); // query parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
             if (authorization != null) localVarHeaderParams.Add("Authorization", this.Configuration.ApiClient.ParameterToString(authorization)); // header parameter
 
 
@@ -786,11 +820,15 @@ namespace Flowaccount.OpenAPITools.Api
         /// Get list all quotations documents. เรียกดูข้อมูลเอกสารใบเสนอราคาทั้งหมดในระบบ
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currentPage">Query current page document quotations. &lt;br&gt;Example Pattern: &lt;ex&gt;/quotations?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/quotations?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query document quotations list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /quotations?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
+        /// <param name="sortBy"> (optional)</param>
+        /// <param name="filter"> (optional)</param>
         /// <returns>Task of InlineDocumentResponse</returns>
-        public async System.Threading.Tasks.Task<InlineDocumentResponse> QuotationsGetAsync (string authorization)
+        public async System.Threading.Tasks.Task<InlineDocumentResponse> QuotationsGetAsync (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string))
         {
-             ApiResponse<InlineDocumentResponse> localVarResponse = await QuotationsGetAsyncWithHttpInfo(authorization);
+             ApiResponse<InlineDocumentResponse> localVarResponse = await QuotationsGetAsyncWithHttpInfo(currentPage, pageSize, authorization, sortBy, filter);
              return localVarResponse.Data;
 
         }
@@ -799,10 +837,20 @@ namespace Flowaccount.OpenAPITools.Api
         /// Get list all quotations documents. เรียกดูข้อมูลเอกสารใบเสนอราคาทั้งหมดในระบบ
         /// </summary>
         /// <exception cref="Flowaccount.OpenAPITools.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="currentPage">Query current page document quotations. &lt;br&gt;Example Pattern: &lt;ex&gt;/quotations?currentPage&#x3D;1 &lt;/ex&gt;&lt;ex&gt;/quotations?currentPage&#x3D;1&amp;pageSize&#x3D;20&lt;/ex&gt;</param>
+        /// <param name="pageSize">Query document quotations list amount per page. &lt;br&gt;Example Pattern: &lt;ex&gt; /quotations?pageSize&#x3D;20 &lt;/ex&gt;</param>
         /// <param name="authorization"></param>
+        /// <param name="sortBy"> (optional)</param>
+        /// <param name="filter"> (optional)</param>
         /// <returns>Task of ApiResponse (InlineDocumentResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineDocumentResponse>> QuotationsGetAsyncWithHttpInfo (string authorization)
+        public async System.Threading.Tasks.Task<ApiResponse<InlineDocumentResponse>> QuotationsGetAsyncWithHttpInfo (int currentPage, int pageSize, string authorization, string sortBy = default(string), string filter = default(string))
         {
+            // verify the required parameter 'currentPage' is set
+            if (currentPage == null)
+                throw new ApiException(400, "Missing required parameter 'currentPage' when calling QuotationsApi->QuotationsGet");
+            // verify the required parameter 'pageSize' is set
+            if (pageSize == null)
+                throw new ApiException(400, "Missing required parameter 'pageSize' when calling QuotationsApi->QuotationsGet");
             // verify the required parameter 'authorization' is set
             if (authorization == null)
                 throw new ApiException(400, "Missing required parameter 'authorization' when calling QuotationsApi->QuotationsGet");
@@ -828,6 +876,10 @@ namespace Flowaccount.OpenAPITools.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (currentPage != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "currentPage", currentPage)); // query parameter
+            if (pageSize != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "pageSize", pageSize)); // query parameter
+            if (sortBy != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "sortBy", sortBy)); // query parameter
+            if (filter != null) localVarQueryParams.AddRange(this.Configuration.ApiClient.ParameterToKeyValuePairs("", "filter", filter)); // query parameter
             if (authorization != null) localVarHeaderParams.Add("Authorization", this.Configuration.ApiClient.ParameterToString(authorization)); // header parameter
 
 

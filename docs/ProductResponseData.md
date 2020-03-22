@@ -20,7 +20,6 @@ Name | Type | Description | Notes
 **BuyVatType** | **long** | ภาษีซื้อ: &lt;br&gt; 1 &#x3D; ราคาซื้อรวมภาษี &lt;br&gt; 3 &#x3D; ราคาซื้อไม่รวมภาษี &lt;br&gt; 5 &#x3D; ราคาซื้อภาษี 0% &lt;br&gt; 7 &#x3D; ราคาซื้อสินค้าได้รับการยกเว้นภาษี | [optional] [default to 3]
 **InventoryPublishedOn** | **DateTime** | วันที่ตั้งต้นสินค้า รูปแบบ yyyy-MM-dd &lt;br&gt; &lt;ex&gt;Example: 2020-01-01&lt;/ex&gt; | [optional] [default to "Wed Jan 01 00:00:00 ICT 2020"]
 **InventoryQuantity** | **decimal** | จำนวนยอดตั้งต้นสินค้า | [optional] 
-**InventoryPrice** | **decimal** | ราคาซื้อสินค้า | [optional] 
 **AverageBuyPrice** | **decimal** | ราคาซื้อเฉลี่ยสินค้า | [optional] 
 **AverageSellPrice** | **decimal** | ราคาขายเฉลี่ยสินค้า | [optional] 
 **RemainingStock** | **decimal** | จำนวนสินค้าคงเหลือในสต๊อก | [optional] 
