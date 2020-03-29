@@ -41,6 +41,7 @@ namespace Flowaccount.OpenAPITools.Model
         /// <param name="sellPrice">ราคาขายสินค้า.</param>
         /// <param name="sellVatType">ภาษีขาย: &lt;br&gt; 1 &#x3D; ราคาขายรวมภาษี &lt;br&gt; 3 &#x3D; ราคาขายไม่รวมภาษี &lt;br&gt; 5 &#x3D; ราคาขายภาษี 0% &lt;br&gt; 7 &#x3D; ราคาขายสินค้าได้รับการยกเว้นภาษี (default to 3).</param>
         /// <param name="unitName">หน่วยสินค้า.</param>
+        /// <param name="categoryId">id หมวดสินค้า.</param>
         /// <param name="categoryName">หมวดสินค้า.</param>
         /// <param name="barcode">บาร์โค้ด.</param>
         /// <param name="buyDescription">รายละเอียดสินค้า ฝั่งซื้อ.</param>
@@ -52,7 +53,7 @@ namespace Flowaccount.OpenAPITools.Model
         /// <param name="averageSellPrice">ราคาขายเฉลี่ยสินค้า.</param>
         /// <param name="remainingStock">จำนวนสินค้าคงเหลือในสต๊อก.</param>
         /// <param name="totalValueInHand">มูลค่าสินค้าคงเหลือในสต๊อก.</param>
-        public ProductResponseData(string id = default(string), long type = 1, string code = default(string), string name = default(string), string sellDescription = default(string), decimal sellPrice = default(decimal), long sellVatType = 3, string unitName = default(string), string categoryName = default(string), string barcode = default(string), string buyDescription = default(string), decimal buyPrice = default(decimal), long buyVatType = 3, DateTime inventoryPublishedOn = "Wed Jan 01 00:00:00 ICT 2020", decimal inventoryQuantity = default(decimal), decimal averageBuyPrice = default(decimal), decimal averageSellPrice = default(decimal), decimal remainingStock = default(decimal), decimal totalValueInHand = default(decimal))
+        public ProductResponseData(string id = default(string), long type = 1, string code = default(string), string name = default(string), string sellDescription = default(string), decimal sellPrice = default(decimal), long sellVatType = 3, string unitName = default(string), long categoryId = default(long), string categoryName = default(string), string barcode = default(string), string buyDescription = default(string), decimal buyPrice = default(decimal), long buyVatType = 3, DateTime inventoryPublishedOn = "Wed Jan 01 00:00:00 ICT 2020", decimal inventoryQuantity = default(decimal), decimal averageBuyPrice = default(decimal), decimal averageSellPrice = default(decimal), decimal remainingStock = default(decimal), decimal totalValueInHand = default(decimal))
         {
             this.Id = id;
             // use default value if no "type" provided
@@ -78,6 +79,7 @@ namespace Flowaccount.OpenAPITools.Model
                 this.SellVatType = sellVatType;
             }
             this.UnitName = unitName;
+            this.CategoryId = categoryId;
             this.CategoryName = categoryName;
             this.Barcode = barcode;
             this.BuyDescription = buyDescription;
@@ -162,6 +164,13 @@ namespace Flowaccount.OpenAPITools.Model
         /// <value>หน่วยสินค้า</value>
         [DataMember(Name="unitName", EmitDefaultValue=true)]
         public string UnitName { get; set; }
+
+        /// <summary>
+        /// id หมวดสินค้า
+        /// </summary>
+        /// <value>id หมวดสินค้า</value>
+        [DataMember(Name="categoryId", EmitDefaultValue=true)]
+        public long CategoryId { get; set; }
 
         /// <summary>
         /// หมวดสินค้า
@@ -257,6 +266,7 @@ namespace Flowaccount.OpenAPITools.Model
             sb.Append("  SellPrice: ").Append(SellPrice).Append("\n");
             sb.Append("  SellVatType: ").Append(SellVatType).Append("\n");
             sb.Append("  UnitName: ").Append(UnitName).Append("\n");
+            sb.Append("  CategoryId: ").Append(CategoryId).Append("\n");
             sb.Append("  CategoryName: ").Append(CategoryName).Append("\n");
             sb.Append("  Barcode: ").Append(Barcode).Append("\n");
             sb.Append("  BuyDescription: ").Append(BuyDescription).Append("\n");
@@ -343,6 +353,11 @@ namespace Flowaccount.OpenAPITools.Model
                     this.UnitName.Equals(input.UnitName))
                 ) && 
                 (
+                    this.CategoryId == input.CategoryId ||
+                    (this.CategoryId != null &&
+                    this.CategoryId.Equals(input.CategoryId))
+                ) && 
+                (
                     this.CategoryName == input.CategoryName ||
                     (this.CategoryName != null &&
                     this.CategoryName.Equals(input.CategoryName))
@@ -424,6 +439,8 @@ namespace Flowaccount.OpenAPITools.Model
                     hashCode = hashCode * 59 + this.SellVatType.GetHashCode();
                 if (this.UnitName != null)
                     hashCode = hashCode * 59 + this.UnitName.GetHashCode();
+                if (this.CategoryId != null)
+                    hashCode = hashCode * 59 + this.CategoryId.GetHashCode();
                 if (this.CategoryName != null)
                     hashCode = hashCode * 59 + this.CategoryName.GetHashCode();
                 if (this.Barcode != null)

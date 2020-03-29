@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **SellPrice** | **decimal** | ราคาขายสินค้า | [optional] 
 **SellVatType** | **long** | ภาษีขาย: &lt;br&gt; 1 &#x3D; ราคาขายรวมภาษี &lt;br&gt; 3 &#x3D; ราคาขายไม่รวมภาษี &lt;br&gt; 5 &#x3D; ราคาขายภาษี 0% &lt;br&gt; 7 &#x3D; ราคาขายสินค้าได้รับการยกเว้นภาษี | [optional] [default to 3]
 **UnitName** | **string** | หน่วยสินค้า | [optional] 
+**CategoryId** | **long** | id หมวดสินค้า | [optional] 
 **CategoryName** | **string** | หมวดสินค้า | [optional] 
 **Barcode** | **string** | บาร์โค้ด | [optional] 
 **BuyDescription** | **string** | รายละเอียดสินค้า ฝั่งซื้อ | [optional] 
